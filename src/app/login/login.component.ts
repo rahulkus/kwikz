@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Http } from '@angular/http';
 import { contentHeaders } from '../common/headers.component';
+import * as myGlobals from '../global.apis';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,7 @@ export class LoginComponent implements OnInit {
   login(event, email, password) {
     event.preventDefault();
     let body = JSON.stringify({ email, password });
-    this.http.post('http://13.55.117.16/api/auth/login', body, { headers: contentHeaders })
+    this.http.post(myGlobals.loginAPIPath, body, { headers: contentHeaders })
       .subscribe(
         response => {
           localStorage.setItem('id_token', response.json().token);

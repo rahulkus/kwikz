@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AuthHttp } from 'angular2-jwt';
 import { FiltersComponent } from '../filters/filters.component';
 import { PostblocksComponent } from "../postblocks/postblocks.component";
+import * as jwt_decode from 'jwt-decode';
 
 @Component({
   selector: 'app-home',
@@ -23,7 +24,7 @@ export class HomeComponent implements OnInit {
 
   constructor(public router: Router, public http: Http, public authHttp: AuthHttp) {
     this.jwt = localStorage.getItem('id_token');
-    this.decodedJwt = this.jwt && (<any>window).jwt_decode(this.jwt);
+    //this.decodedJwt = this.jwt && (<any>window).jwt_decode(this.jwt);
   }
 
 
