@@ -1,0 +1,250 @@
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+body {
+  font-weight: 300;
+  margin-bottom: 80px;
+  font-family: "Kanit-regular";
+}
+
+.footer {
+  background-color: #f5f5f5;
+  border-top: 1px solid #e7e7e7;
+  bottom: 0;
+  height: auto;
+  width: 100%;
+  color:#a8a8a8;
+}
+
+.footer a{
+  color: #a8a8a8;
+}
+
+.footer .footer-social-icons {
+  font-size: 32px;
+  padding-top: 18px;
+}
+
+.footer .footer-social-icons a {
+  color: #777;
+}
+
+.company--copyright{
+  background-color :#ebebeb;
+  margin-top:20px;
+  padding:10px 0;
+  color: #a8a8a8;
+}
+
+[v-cloak] {
+  display: none;
+}
+
+.sell-icon{
+  background-image: url('../assets/shopping-cart.png');
+  background-repeat: no-repeat;
+  background-position: 0 50%;
+  background-size: 32px;
+}
+
+.account-icon{
+  background-image: url('../assets/my-account.png');
+  background-repeat: no-repeat;
+  background-position: 0 50%;
+}
+
+.help-icon{
+  background-image: url('../assets/help.png');
+  background-repeat: no-repeat;
+  background-position: 0 50%;
+  background-size: 25px;
+}
+
+.input-group-addon{
+  background-color: #ebebeb;
+  border: 1px solid #ebebeb;;
+}
+
+@media (min-width: 768px) {
+  .navbar-nav > li.account-icon a {
+    padding-left:20px;
+  }
+
+  .navbar-nav > li.help-icon a{
+    padding-left:20px;
+  }
+}
+
+.my-swipe {
+  height: 200px;
+  color: #fff;
+  font-size: 30px;
+  text-align: center;
+}
+
+.slide1 {
+  background-color: #0089dc;
+  color: #fff;
+}
+
+.slide2 {
+  background-color: #ffd705;
+  color: #000;
+}
+
+.slide3 {
+  background-color: #ff2d4b;
+  color: #fff;
+}
+
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 20px;
+  width:82%;
+  margin-left:auto;
+  margin-right:auto;
+  margin-bottom:190px;
+}
+
+.filtersSection{
+  background-color:#f8f8f8;
+  text-align: left;
+  padding: 0 10px;
+  padding-bottom: 40px;
+}
+
+.vehicleReport{
+  border: 1px solid #cccccc;
+  background-color: #fff;
+  text-align:center;
+  padding:10px 0;
+}
+
+.vehicleReport .title{
+  font-size: 24px;
+  color:#33FF36;
+  font-weight:400;
+}
+
+.vehicleReport .text{
+  font-size:18px;
+  font-weight:400;
+  color:black;
+}
+
+.Accordion {
+  width: 100%;
+}
+
+.Accordion__title, .searchTitle{
+  font-size:18px;
+}
+
+.Accordion__content{
+  font-size: 14px;
+}
+
+.accordionIcon{
+  background-image: url('../assets/plus_circle.png');
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  width: 16px;
+  height: 16px;
+  margin-top: 5px;
+}
+
+.searchField{
+  padding-top:10px
+}
+
+.foot-links a, .foot-links p{
+  display: block;
+  transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  text-decoration: none;
+}
+
+.foot-links img{
+	padding-top: 5px;
+}
+
+.foot-links a{
+	padding-top: 5px;
+}
+
+.foot-header{
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 12px;;
+}
+
+.shift--5{
+  margin-right: 5px;
+}
+
+.footerTop{
+  border-bottom:1px solid #c5c5c5;
+  padding-bottom:20px;
+  padding-top:25px;
+}
+.footer--span > span{
+  font-size: 12px;
+}
+
+@media (min-width: 768px){
+    .navbar-brand {
+        height: 75px;
+        line-height: 45px;
+        padding:15px 0;
+    }
+    .navbar > .container .navbar-brand{
+        margin-left:0;
+    }
+}
+
+.navbar{
+    min-height:75px;
+    border:0;
+}
+.navbar-nav > li > a {
+    line-height: 45px;
+}
+
+.navbar-default {
+    background-color: #f5f5f5;
+    border-color: #e4e4e4;
+}
+
+.main-container{
+    margin-top:140px;
+	  min-height:450px;
+}
+
+/********* Home ***********/
+
+.header-top-right{
+  float: right;
+}
+.header-top {
+    padding: 10px 0px;
+    background: #0070bb;
+    color: white;
+}
+.register, .login {
+  padding-left: 10px;
+}
+
+.register > a, .login > a{
+  color: white;
+}
+
+.pad--right--5{
+  padding-right: 5px;
+}

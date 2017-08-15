@@ -1,0 +1,324 @@
+<div class="row">
+<div class="col-sm-9">
+   <div class="row">
+      <ul class="nav nav-pills nav-justifie">
+         <li [ngClass]="{ 'active': showDNClass }"><a class="custm-btn-pill custm-green" data-toggle="pill" href="#CarDetails" (click)="setVariables('carDetailsTab')">Car Details</a></li>
+         <li [class.active]="toTrue"><a class="custm-btn-pill custm-darkBlue" data-toggle="pill" href="#ListingDetails" (click)="setVariables('listingDetailsTab')">Listing Details</a></li>
+         <li [ngClass]="{ 'active': showPhotoClass }"><a class="custm-btn-pill custm-darkBlue" data-toggle="pill" href="#Photos" (click)="setVariables('showPhotosTab')">Photos</a></li>
+         <li [class.active]="showDetailsClass"><a class="custm-btn-pill custm-darkBlue" data-toggle="pill" href="#Confirmation" (click)="setVariables('detailsConfirmationTab')">Confirmation</a></li>
+      </ul>
+   </div>
+</div>
+<div class="col-sm-9 margin-top-50">
+   <div class="row">
+      <div class="tab-content">
+         <div role="tabpanel" [ngClass]="{ 'active': showDNClass }" id="CarDetails" class="tab-pane fade in active" #carDetails>
+            <form role="form">
+               <div class="input-group margin--15 col-xs-4">
+                  <label class="" for="plateNumber">Please enter your plate number or VIN.</label>
+                  <input type="text" class="form-control  plate-number" id="" placeholder="Enter your number plate or VIN">
+               </div>
+               <p>Enter your car details manually.</p>
+               <div class="row">
+                  <div class="col-xs-6">
+                     <div class="input-group margin--15 col-xs-12">
+                        <label for="carMake" class="">Make</label>
+                        <input auto-complete (keyup)="clearInput(inputValue)" class="form-control plate-number" id="carMake" name="Make"
+                        [source]="carMakeArray"
+                        (valueChanged)="valueChanged($event)"
+                        placeholder="Make"
+                        [max-num-list]="15"
+                        [ngModel]="make" />
+                     </div>
+                  </div>
+                  <div class="col-xs-6">
+                     <div class="input-group margin--15 col-xs-12">
+                        <label for="carModel" class="">Model</label>
+                        <input auto-complete #inputValue class="form-control plate-number" id="carModel" name="Model"
+                        [source]="selectedArray"
+                        (valueChanged)="valueChanged($event)"
+                        [placeholder]="place"
+                        [max-num-list]="15"
+                        [(ngModel)]="model" 
+                        />
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-xs-6">
+                     <div class="input-group margin--15 col-xs-12">
+                        <label for="modelDetail" class="">Model detail</label>
+                        <input type="text" class="form-control  plate-number" id="" placeholder="">
+                     </div>
+                  </div>
+                  <div class="col-xs-6">
+                     <div class="input-group margin--15 col-xs-12">
+                        <label for="carYear" class="">Year</label>
+                        <input type="text" class="form-control  plate-number" id="" placeholder="">
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-xs-6">
+                     <div class="input-group margin--15 col-xs-12">
+                        <label for="carKilometres " class="">Kilometres</label>
+                        <input type="text" class="form-control  plate-number" id="" placeholder="">
+                     </div>
+                  </div>
+                  <div class="col-xs-6">
+                     <div class="input-group margin--15 col-xs-12">
+                        <label for="exteriorColour" class="">Exterior colour</label>
+                        <input type="text" class="form-control  plate-number" id="" placeholder="">
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-xs-6">
+                     <div class="input-group margin--15 col-xs-12">
+                        <label for="carDoors " class="">Doors</label>
+                        <input type="text" class="form-control  plate-number" id="" placeholder="">
+                     </div>
+                  </div>
+                  <div class="col-xs-6">
+                     <div class="input-group margin--15 col-xs-12">
+                        <label for="bodyType" class="">Body Style</label>
+                        <input auto-complete #inputValue class="form-control plate-number" id="bodystyle" name="bodyType"
+                        [source]="bodyTypeArray"
+                        (valueChanged)="valueChanged($event)"
+                        placeholder="Body Style"
+                        [(ngModel)]="bodystyle" 
+                        />
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-xs-6">
+                     <div class="input-group margin--15 col-xs-12">
+                        <label for="fuelType " class="">Fuel Type</label>
+                        <input auto-complete #inputValue class="form-control plate-number" id="fuelType" name="fuelType"
+                        [source]="fuelTypeArray"
+                        (valueChanged)="valueChanged($event)"
+                        placeholder="Fuel Type"
+                        [(ngModel)]="fuelType" 
+                        />
+                     </div>
+                  </div>
+                  <div class="col-xs-6">
+                     <div class="input-group margin--15 col-xs-12">
+                        <label for="cylinders" class="">Cylinders</label>
+                        <input auto-complete #inputValue class="form-control plate-number" id="cylinders" name="cylinders"
+                        [source]="cylindersArray"
+                        (valueChanged)="valueChanged($event)"
+                        placeholder="Cylinders"
+                        [(ngModel)]="cylinders" 
+                        />
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-xs-6">
+                     <div class="input-group margin--15 col-xs-12">
+                        <label for="engineSize " class="">Engine size</label>
+                        <input type="text" class="form-control  plate-number" id="engineSize" placeholder="">
+                     </div>
+                  </div>
+                  <div class="col-xs-6">
+                     <div class="input-group margin--15 col-xs-12">
+                        <label for="transmissionType" class="">Transmission</label>
+                        <input auto-complete #inputValue class="form-control plate-number" id="transmissionType" name="transmissionType"
+                        [source]="transmissionArray"
+                        (valueChanged)="valueChanged($event)"
+                        placeholder="Transmission"
+                        [(ngModel)]="transmissionType" 
+                        />
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-xs-6">
+                     <div class="input-group margin--15 col-xs-12">
+                        <label for="engineSize " class="">4WD</label>
+                        <input type="text" class="form-control  plate-number" id="is4WD" placeholder=""/>
+                     </div>
+                  </div>
+                  <div class="col-xs-6">
+                     <div class="input-group margin--15 col-xs-12">
+                        <label for="noOfOwners" class="">Number of owners</label>
+                        <input auto-complete #inputValue class="form-control plate-number" id="noOfOwners" name="noOfOwners"
+                        [source]="noOfOwnersArray"
+                        (valueChanged)="valueChanged($event)"
+                        placeholder=""
+                        [(ngModel)]="noOfOwners" 
+                        />
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-xs-6">
+                     <div class="input-group margin--15 col-xs-12">
+                        <label for="importHistory " class="">Import History</label>
+                        <input auto-complete #inputValue class="form-control plate-number" id="importHistory" name="importHistory"
+                        [source]="importHistoryArray"
+                        (valueChanged)="valueChanged($event)"
+                        placeholder=""
+                        [(ngModel)]="importHistory" 
+                        />
+                     </div>
+                  </div>
+                  <div class="col-xs-6">
+                     <div class="input-group margin--15 col-xs-12">
+                        <label for="registrationExpires" class="">Registration Expires</label>
+                        <input auto-complete #inputValue class="form-control plate-number" id="registrationExpires" name="registrationExpires"
+                        [source]="registrationExpireArray"
+                        (valueChanged)="valueChanged($event)"
+                        placeholder=""
+                        [(ngModel)]="registrationExpires" 
+                        />
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-xs-6">
+                     <div class="input-group margin--15 col-xs-12">
+                        <label for="WoFExpires" class="">WoF expires</label>
+                        <input auto-complete #inputValue class="form-control plate-number" id="WoFExpires" name="WoFExpires"
+                        [source]="WoFArray"
+                        (valueChanged)="valueChanged($event)"
+                        placeholder=""
+                        [(ngModel)]="WoFExpires" 
+                        />
+                     </div>
+                  </div>
+                  <div class="col-xs-6">
+                     <div class="input-group margin--15 col-xs-12">
+                        <label for="registrationExpires" class="">Number plate</label>
+                        <input type="text" class="form-control  plate-number" id="namePlate" placeholder=""/>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-xs-12">
+                     <label for="carFeatures" class="">Features</label>
+                  </div>
+                  <div class="col-xs-6">
+                     <div class="checkbox"><label><input type="checkbox" value="">ABS brakes</label></div>
+                     <div class="checkbox"><label><input type="checkbox" value="">Alarm</label></div>
+                     <div class="checkbox"><label><input type="checkbox" value="">Central locking</label></div>
+                     <div class="checkbox"><label><input type="checkbox" value="">Passenger airbag</label></div>
+                     <div class="checkbox"><label><input type="checkbox" value="">Sunroof</label></div>
+                  </div>
+                  <div class="col-xs-6">
+                     <div class="checkbox"><label><input type="checkbox" value="">Air conditioning</label></div>
+                     <div class="checkbox"><label><input type="checkbox" value="">Alloy wheels</label></div>
+                     <div class="checkbox"><label><input type="checkbox" value="">Driver airbag</label></div>
+                     <div class="checkbox"><label><input type="checkbox" value="">Power steering</label></div>
+                     <div class="checkbox"><label><input type="checkbox" value="">Towbar</label></div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-xs-12">
+                     <div class="form-group">
+                        <label for="comment">Description:</label>
+                        <textarea class="form-control" rows="5" id="description"></textarea>
+                     </div>
+                  </div>
+               </div>
+               <br/>                                    
+               <button type="submit" class="btn btn-default login-btn" (click)="onClickChangeT('carDetailsbtn')">NEXT</button>
+            </form>
+         </div>
+         <div role="tabpanel" [class.active]="toTrue" [class.in]="toTrue" id="ListingDetails" class="tab-pane fade" #tabsRef>
+            <form role="form">
+               <div class="row form-group">
+                  <div class="col-xs-12">
+                     <label for="listingType" class="">Listing Type	</label>
+                  </div>
+                  <div class="col-xs-6">
+                     <div class="radio"><label><input type="radio" value="" name="listType">List a classified</label></div>
+                  </div>
+                  <div class="col-xs-6">
+                     <div class="radio"><label><input type="radio" value="" name="listType">Run an auction</label></div>
+                  </div>
+               </div>
+               <div class="row form-group">
+                  <div class="col-xs-6">
+                     <div class="input-group margin--15 col-xs-12">
+                        <label for="carKilometres " class="">Asking Price $</label>
+                        <input type="number" class="form-control  plate-number" id="" placeholder="0.00">
+                     </div>
+                  </div>
+                  <div class="col-xs-6">
+                     <div class="input-group margin--15 col-xs-12">
+                        <div class="checkbox"><label><input type="checkbox" value="">Or Near Offer</label></div>
+                     </div>
+                  </div>
+               </div>
+               <div class="row form-group">
+                  <div class="col-xs-6">
+                     <label for="approxValue" class="">Approximate value</label>
+                     <input auto-complete #inputValue class="form-control plate-number" id="approxValue" name="approxValue"
+                     [source]="approxValueArray"
+                     (valueChanged)="valueChanged($event)"
+                     placeholder="choose..."
+                     [(ngModel)]="approxValue" 
+                     />                     
+                  </div>
+               </div>
+               <div class="row form-group">
+                  <div class="col-xs-12">
+                     <label for="listingType" class="">On Road Costs</label>
+                  </div>
+                  <div class="col-xs-6">
+                     <div class="radio"><label><input type="radio" value="" name="onRoadCosts">Excluded - additional costs may apply</label></div>
+                  </div>
+                  <div class="col-xs-6">
+                     <div class="radio"><label><input type="radio" value="" name="onRoadCosts">Included - vehicle is legally road-worthy</label></div>
+                  </div>
+               </div>
+               <div class="row form-group">
+                  <div class="col-xs-12">
+                     <label for="listingType" class="">Listing Duration</label>
+                  </div>
+                  <div class="col-xs-6">
+                     <div class="radio">
+                       <label><input type="radio" value="" (click)="onRadioSelect()"  name="listingDuration">Fixed length</label>
+                        <input auto-complete #inputValue class="form-control plate-number" id="fixedLength" name="fxdLength"
+                        [source]="fixedLengthArray"
+                        (valueChanged)="valueChanged($event)"
+                         placeholder=""
+                         [(ngModel)]="fxdLength" 
+                         [disabled]="!isRadioSelected" 
+                        /> 
+                       </div>
+                  </div>
+                  <div class="col-xs-6">
+                     <div class="radio"><label><input type="radio" value="" name="listingDuration">Or, choose an end time</label></div>
+                  </div>
+               </div>
+               <div class="row form-group">
+                  <div class="col-xs-6">
+                     <label for="bestContactTime" class="">Best contact time</label>
+                     <input auto-complete #inputValue class="form-control plate-number" id="bestContactTime" name="bestContactTime"
+                     [source]="bestContactArray"
+                     (valueChanged)="valueChanged($event)"
+                     placeholder=""
+                     [(ngModel)]="bestContactTime" 
+                     />                     
+                  </div>
+               </div>               
+            </form>
+            <button type="submit" class="btn btn-default login-btn" (click)="onClickChangeT('carListingbtn')">NEXT</button>
+            </div>
+            <div [ngClass]="{ 'active': showPhotoClass }" [class.in]="showPhotoClass" role="tabpanel" id="Photos" class="tab-pane fade">
+               <h3>Menu 2</h3>
+               <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+               <button type="submit" class="btn btn-default login-btn" (click)="onClickChangeT('showPhotosbtn')">NEXT</button>
+            </div>
+            <div [class.active]="showDetailsClass" [class.in]="showDetailsClass" role="tabpanel" id="Confirmation" class="tab-pane fade">
+               <h3>Menu 3</h3>
+               <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
