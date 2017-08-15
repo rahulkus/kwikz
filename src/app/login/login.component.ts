@@ -14,8 +14,6 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  public isLoggedIn: boolean;
-
   constructor(public router: Router, public http: Http) {
    }
 
@@ -27,8 +25,7 @@ export class LoginComponent implements OnInit {
         response => {
           localStorage.setItem('id_token', response.json().token);
           localStorage.setItem('user', email);
-          this.isLoggedIn = true;
-          this.router.navigate(['home']);
+          window.location.replace('/home');
         },
         error => {
           alert(error.text());

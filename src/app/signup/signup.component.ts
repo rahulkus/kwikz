@@ -20,7 +20,8 @@ constructor(public router: Router, public http: Http) {
       .subscribe(
         response => {
           localStorage.setItem('id_token', response.json().token);
-          this.router.navigate(['home']);
+          localStorage.setItem('user', email);
+          window.location.replace('/home');
         },
         error => {
           alert(error.text());
