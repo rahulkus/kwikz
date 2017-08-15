@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { AuthHttp } from 'angular2-jwt';
 import { FiltersComponent } from '../filters/filters.component';
 import { PostblocksComponent } from "../postblocks/postblocks.component";
-import * as jwt_decode from 'jwt-decode';
 
 @Component({
   selector: 'app-home',
