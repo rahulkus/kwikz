@@ -20,6 +20,6 @@ public userLoggedIn: boolean;
   logout() {
     localStorage.removeItem('id_token');
     localStorage.removeItem('user');
-    this.router.navigate(['login']);
+    window.location.replace('/login');
   }
 }
