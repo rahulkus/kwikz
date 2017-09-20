@@ -2,39 +2,35 @@
 <!-- Fixed navbar -->
 <nav class="navbar navbar-default navbar-fixed-top">
 	<div *ngIf="!userLoggedIn" class="header-top">
-	<div class="container">
- 		<div class="header-top-right">
-   		   <span class="register">
-   	   		<img class="pad--right--5" src="assets/login-icon.png" alt=""><a [routerLink]="['/login']" href="#">Login</a>
-     	  </span>
-	   	</div>
-	</div>
-	</div>
-	<div class="container">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand" href="#"><img src="assets/logo.png" alt=""/></a>
+		<div class="container register">
+			<div class="header-top-left">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#"><img src="assets/logo.png" alt=""/></a>
+				</div>
+				<div *ngIf="!userLoggedIn" id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a [routerLink]="['/sell']"><span class="pad--right--5"><img src="assets/sell-icon.png" alt=""></span>Sell</a></li>
+						<li><a [routerLink]="['/myaccount']"><span class="pad--right--5"><img src="assets/user-icon.png" alt=""></span>My Account</a></li>
+						<li><a [routerLink]="['/home']"><span class="pad--right--5"><img src="assets/help-icon.png" alt=""></span>Help</a></li>
+						<li><a [routerLink]="['/login']" href="#"><span class="pad--right--5"><img class="pad--right--5" src="assets/login-icon.png" alt=""></span>Login</a></li>
+					</ul>
+				</div><!--/.nav-collapse -->
+				<div *ngIf="userLoggedIn" class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a [routerLink]="['/sell']"><span class="glyphicon glyphicon-shopping-cart pad--right--5"></span>Sell</a></li>
+						<li><a href="#">Welcome <span>{{username}}</span></a></li>
+						<li><a (click)="logout()">Logout</a></li>
+						<li><a [routerLink]="['/home']"><span class="glyphicon glyphicon-headphones pad--right--5"></span>Help</a></li>
+					</ul>
+				</div>			 
+			</div>
 		</div>
-		<div *ngIf="!userLoggedIn" id="navbar" class="navbar-collapse collapse">
-			<ul class="nav navbar-nav navbar-right">
-				<li><a [routerLink]="['/sell']"><span class="pad--right--5"><img src="assets/sell-icon.png" alt=""></span>Sell</a></li>
-				<li><a [routerLink]="['/login']"><span class="pad--right--5"><img src="assets/user-icon.png" alt=""></span>My Account</a></li>
-                <li><a [routerLink]="['/home']"><span class="pad--right--5"><img src="assets/help-icon.png" alt=""></span>Help</a></li>
-			</ul>
-		</div><!--/.nav-collapse -->
-		<div *ngIf="userLoggedIn" class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav navbar-right">
-				<li><a [routerLink]="['/sell']"><span class="glyphicon glyphicon-shopping-cart pad--right--5"></span>Sell</a></li>
-				<li><a href="#">Welcome <span>{{username}}</span></a></li>
-				<li><a (click)="logout()">Logout</a></li>
-				<li><a [routerLink]="['/home']"><span class="glyphicon glyphicon-headphones pad--right--5"></span>Help</a></li>
-			</ul>
-		</div>	
 	</div>
 </nav>
 <div class="container main-container">
