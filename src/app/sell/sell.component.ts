@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Http } from '@angular/http';
+import { Router } from '@angular/router';
 import { contentHeaders } from '../common/headers.component';
 import { DomSanitizer, SafeHtml } from "@angular/platform-browser";
 import { NguiAutoCompleteModule } from '@ngui/auto-complete';
@@ -10,7 +11,10 @@ import { NguiAutoCompleteModule } from '@ngui/auto-complete';
   templateUrl: './sell.component.html',
   styleUrls: ['./sell.component.css']
 })
+
 export class SellComponent implements OnInit {
+  constructor(public router: Router, public http: Http) {
+  }
   selectedArray:any = [];
   place:string = 'Model';
   isRadioSelected:boolean = false;
@@ -92,7 +96,6 @@ Ford = ['Anglia', 'Bronco', 'Capri', 'Cortina', 'Courier', 'Deluxe', 'Econovan',
   onRadioSelect(){
    this.isRadioSelected = true;
   }
-  constructor() {}
 
   ngOnInit() {
   }
@@ -146,6 +149,32 @@ Ford = ['Anglia', 'Bronco', 'Capri', 'Cortina', 'Courier', 'Deluxe', 'Econovan',
       this.toTrue = false;
       this.showDetailsClass = (this.showDetailsClass ==  false ? true : false);
     }
+  }
+  
+  Post(event, plate) {
+    event.preventDefault();
+    let body =  plate;
+    let apiURL = 'http://test.carjam.co.nz/api/car/';
+    let key = '7AB2A35AEB2E258220FDAB8B65E5E88B7514BD63';
+    this.http.get(apiURL + '?plate=' + body +'&key='+ key +'&f=json&translate=1')
+      .subscribe(
+        response => {
+          console.log(response.json().idh);
+          (<HTMLInputElement>document.getElementById("carMake")).value = response.json().idh.vehicle.make;
+          (<HTMLInputElement>document.getElementById("carModel")).value = response.json().idh.vehicle.model;
+          (<HTMLInputElement>document.getElementById("carYear")).value = response.json().idh.vehicle.year_of_manufacture;
+          (<HTMLInputElement>document.getElementById("exteriorColour")).value = response.json().idh.vehicle.main_colour;
+          (<HTMLInputElement>document.getElementById("bodystyle")).value = response.json().idh.vehicle.body_style;
+          (<HTMLInputElement>document.getElementById("fuelType")).value = response.json().idh.vehicle.fuel_type;
+          (<HTMLInputElement>document.getElementById("noOfOwners")).value = response.json().idh.vehicle.number_of_owners;
+          (<HTMLInputElement>document.getElementById("WoFExpires")).value = response.json().hidh.vehicle.expiry_date_of_last_successful_wof;
+          (<HTMLInputElement>document.getElementById("carPlate")).value = response.json().hidh.vehicle.plate;
+        },
+        error => {
+          alert(error.text());
+          console.log(error.text());
+        }
+      );
   }
 
 }

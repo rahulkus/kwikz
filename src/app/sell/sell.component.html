@@ -13,12 +13,15 @@
    <div class="row">
       <div class="tab-content">
          <div role="tabpanel" [ngClass]="{ 'active': showDNClass }" id="CarDetails" class="tab-pane fade in active" #carDetails>
-            <form role="form">
-               <div class="input-group margin--15 col-xs-4">
+            <form role="form" (submit)="Post($event, plate.value)">
+	           <div class="input-group margin--15 col-xs-4">
                   <label class="" for="plateNumber">Please enter your plate number or VIN.</label>
-                  <input type="text" class="form-control  plate-number" id="" placeholder="Enter your number plate or VIN">
+                  <input type="text" #plate class="form-control  plate-number" id="" placeholder="Enter your number plate or VIN">
                </div>
-               <p>Enter your car details manually.</p>
+               <button type="submit" class="btn btn-default">Submit</button>
+	       </form>
+            <p>Enter your car details manually.</p>
+             <form role="form">
                <div class="row">
                   <div class="col-xs-6">
                      <div class="input-group margin--15 col-xs-12">
@@ -54,7 +57,7 @@
                   <div class="col-xs-6">
                      <div class="input-group margin--15 col-xs-12">
                         <label for="carYear" class="">Year</label>
-                        <input type="text" class="form-control  plate-number" id="" placeholder="">
+                        <input type="text" id="carYear" name="carYear" class="form-control  plate-number" id="" placeholder="">
                      </div>
                   </div>
                </div>
@@ -68,7 +71,7 @@
                   <div class="col-xs-6">
                      <div class="input-group margin--15 col-xs-12">
                         <label for="exteriorColour" class="">Exterior colour</label>
-                        <input type="text" class="form-control  plate-number" id="" placeholder="">
+                        <input type="text" id="exteriorColour" name="exteriorColour" class="form-control  plate-number" id="" placeholder="">
                      </div>
                   </div>
                </div>
@@ -192,7 +195,7 @@
                   <div class="col-xs-6">
                      <div class="input-group margin--15 col-xs-12">
                         <label for="registrationExpires" class="">Number plate</label>
-                        <input type="text" class="form-control  plate-number" id="namePlate" placeholder=""/>
+                        <input type="text" id="carPlate" name="carPlate" class="form-control  plate-number" id="namePlate" placeholder=""/>
                      </div>
                   </div>
                </div>
