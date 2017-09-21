@@ -1,12 +1,6 @@
 <div class="login jumbotron center-block">
    <div class="row">
       <h3 class="text-center login--text">Login</h3>
-      <p class="text-center login--subtitle">Continue with your social login</p>
-      <div>
-          <span><img src="assets/google+.jpg" alt="Google+ Login"></span>
-          <span class="fb--btn"><img src="assets/facebook.jpg" alt="Facebook Login"></span>
-      </div>
-      <p class="text-center login--subtitle" style="margin-top:15px;">or</p>
       <form role="form" (submit)="login($event, email.value, password.value)">
          <div class="input-group margin--15">
            <span class="input-group-addon"><img src="assets/email-icon.png" alt="Email"></span>

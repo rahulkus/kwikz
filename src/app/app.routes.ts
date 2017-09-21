@@ -6,10 +6,12 @@ import { AuthGuard } from './common/auth.guard.component';
 import { SellComponent } from './sell/sell.component';
 import { CarpostsComponent } from './carposts/carposts.component';
 import { PostblocksComponent } from "./postblocks/postblocks.component";
+import { MyaccountComponent } from "./myaccount/myaccount.component";
 
 export const routes: Routes = [
   { path: '',       component: HomeComponent },
   { path: 'login',  component: LoginComponent },
+  { path: 'myaccount',  component: MyaccountComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'sell',   component: SellComponent },
   { path: 'carposts', component: CarpostsComponent },

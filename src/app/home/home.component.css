@@ -53,76 +53,76 @@ p.car-type:hover{
   color: #f75a4d;
 }
 span.hatchback{
- background: transparent url('http://localhost:4200/assets/hatchback.png') center top no-repeat;
+ background: transparent url('/assets/hatchback.png') center top no-repeat;
 }
 span.hatchback:hover {
-   background-image: url('http://localhost:4200/assets/hatchback-hover.png');
+   background-image: url('/assets/hatchback-hover.png');
 }
 span.sedan{
- background: transparent url('http://localhost:4200/assets/sedan.png') center top no-repeat;
+ background: transparent url('/assets/sedan.png') center top no-repeat;
 }
 span.sedan:hover {
-   background-image: url('http://localhost:4200/assets/sedan-hover.png');
+   background-image: url('/assets/sedan-hover.png');
 }
 span.station-wagon{
- background: transparent url('http://localhost:4200/assets/Station-Wagon.png') center top no-repeat;
+ background: transparent url('/assets/Station-Wagon.png') center top no-repeat;
 }
 span.station-wagon:hover {
-   background-image: url('http://localhost:4200/assets/Station-Wagon-hover.png');
+   background-image: url('/assets/Station-Wagon-hover.png');
 }
 span.suv{
- background: transparent url('http://localhost:4200/assets/suv.png') center top no-repeat;
+ background: transparent url('/assets/suv.png') center top no-repeat;
 }
 span.suv:hover {
-   background-image: url('http://localhost:4200/assets/suv-hover.png');
+   background-image: url('/assets/suv-hover.png');
 }
 span.classic{
- background: transparent url('http://localhost:4200/assets/classic.png') center top no-repeat;
+ background: transparent url('/assets/classic.png') center top no-repeat;
 }
 span.classic:hover {
-   background-image: url('http://localhost:4200/assets/classic-hover.png');
+   background-image: url('/assets/classic-hover.png');
 }
 span.luxury{
- background: transparent url('http://localhost:4200/assets/luxury.png') center top no-repeat;
+ background: transparent url('/assets/luxury.png') center top no-repeat;
 }
 span.luxury:hover {
-   background-image: url('http://localhost:4200/assets/luxury-hover.png');
+   background-image: url('/assets/luxury-hover.png');
 }
 span.hybrid{
- background: transparent url('http://localhost:4200/assets/Hybrids.png') center top no-repeat;
+ background: transparent url('/assets/Hybrids.png') center top no-repeat;
 }
 span.hybrid:hover {
-   background-image: url('http://localhost:4200/assets/Hybrids-hover.png');
+   background-image: url('/assets/Hybrids-hover.png');
 }
 span.ute{
- background: transparent url('http://localhost:4200/assets/ute.png') center top no-repeat;
+ background: transparent url('/assets/ute.png') center top no-repeat;
 }
 span.ute:hover {
-   background-image: url('http://localhost:4200/assets/ute-hover.png');
+   background-image: url('/assets/ute-hover.png');
 }
 span.Minivans{
- background: transparent url('http://localhost:4200/assets/Minivans.png') center top no-repeat;
+ background: transparent url('/assets/Minivans.png') center top no-repeat;
 }
 span.Minivans:hover {
-   background-image: url('http://localhost:4200/assets/Minivans-hover.png');
+   background-image: url('/assets/Minivans-hover.png');
 }
 span.Convertibles{
- background: transparent url('http://localhost:4200/assets/Convertibles.png') center top no-repeat;
+ background: transparent url('/assets/Convertibles.png') center top no-repeat;
 }
 span.Convertibles:hover {
-   background-image: url('http://localhost:4200/assets/Convertibles-hover.png');
+   background-image: url('/assets/Convertibles-hover.png');
 }
 span.coupe{
- background: transparent url('http://localhost:4200/assets/cope.png') center top no-repeat;
+ background: transparent url('/assets/cope.png') center top no-repeat;
 }
 span.coupe:hover {
-   background-image: url('http://localhost:4200/assets/cope-hover.png');
+   background-image: url('/assets/cope-hover.png');
 }
 span.van{
- background: transparent url('http://localhost:4200/assets/van.png') center top no-repeat;
+ background: transparent url('/assets/van.png') center top no-repeat;
 }
 span.van:hover {
-   background-image: url('http://localhost:4200/assets/van-hover.png');
+   background-image: url('/assets/van-hover.png');
 }
 
 .fuel-box{
@@ -134,26 +134,26 @@ span.van:hover {
     background: #fff;
 }
 span.diesel{
- background: transparent url('http://localhost:4200/assets/diesel.png') center top no-repeat;
+ background: transparent url('/assets/diesel.png') center top no-repeat;
 }
 span.diesel:hover {
-   background-image: url('http://localhost:4200/assets/diesel-hover.png');
+   background-image: url('/assets/diesel-hover.png');
 }
 span.petrol{
- background: transparent url('http://localhost:4200/assets/petrol.png') center top no-repeat;
+ background: transparent url('/assets/petrol.png') center top no-repeat;
 }
 span.petrol:hover {
-   background-image: url('http://localhost:4200/assets/petrol-hover.png');
+   background-image: url('/assets/petrol-hover.png');
 }
 span.cng{
- background: transparent url('http://localhost:4200/assets/cng.png') center top no-repeat;
+ background: transparent url('/assets/cng.png') center top no-repeat;
 }
 span.cng:hover {
-   background-image: url('http://localhost:4200/assets/cng-hover.png');
+   background-image: url('/assets/cng-hover.png');
 }
 span.lpg{
- background: transparent url('http://localhost:4200/assets/lpg.png') center top no-repeat;
+ background: transparent url('/assets/lpg.png') center top no-repeat;
 }
 span.lpg:hover {
-   background-image: url('http://localhost:4200/assets/lpg-hover.png');
+   background-image: url('/assets/lpg-hover.png');
 }
