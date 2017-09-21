@@ -159,16 +159,16 @@ Ford = ['Anglia', 'Bronco', 'Capri', 'Cortina', 'Courier', 'Deluxe', 'Econovan',
     this.http.get(apiURL + '?plate=' + body +'&key='+ key +'&f=json&translate=1')
       .subscribe(
         response => {
-          console.log(response.json().idh);
-          (<HTMLInputElement>document.getElementById("carMake")).value = response.json().idh.vehicle.make;
-          (<HTMLInputElement>document.getElementById("carModel")).value = response.json().idh.vehicle.model;
-          (<HTMLInputElement>document.getElementById("carYear")).value = response.json().idh.vehicle.year_of_manufacture;
-          (<HTMLInputElement>document.getElementById("exteriorColour")).value = response.json().idh.vehicle.main_colour;
-          (<HTMLInputElement>document.getElementById("bodystyle")).value = response.json().idh.vehicle.body_style;
-          (<HTMLInputElement>document.getElementById("fuelType")).value = response.json().idh.vehicle.fuel_type;
-          (<HTMLInputElement>document.getElementById("noOfOwners")).value = response.json().idh.vehicle.number_of_owners;
-          (<HTMLInputElement>document.getElementById("WoFExpires")).value = response.json().hidh.vehicle.expiry_date_of_last_successful_wof;
-          (<HTMLInputElement>document.getElementById("carPlate")).value = response.json().hidh.vehicle.plate;
+			//console.log(response.json().idh);
+			(<HTMLInputElement>document.getElementById("carMake")).value = response.json().idh.vehicle.make;
+			(<HTMLInputElement>document.getElementById("carModel")).value = response.json().idh.vehicle.model;
+			(<HTMLInputElement>document.getElementById("carYear")).value = response.json().idh.vehicle.year_of_manufacture;
+			(<HTMLInputElement>document.getElementById("exteriorColour")).value = response.json().idh.vehicle.main_colour;
+			(<HTMLInputElement>document.getElementById("bodystyle")).value = response.json().idh.vehicle.body_style;
+			(<HTMLInputElement>document.getElementById("fuelType")).value = response.json().idh.vehicle.fuel_type;
+			(<HTMLInputElement>document.getElementById("noOfOwners")).value = response.json().idh.vehicle.number_of_owners;
+			(<HTMLInputElement>document.getElementById("WoFExpires")).value = response.json().hidh.vehicle.expiry_date_of_last_successful_wof;
+			(<HTMLInputElement>document.getElementById("carPlate")).value = response.json().hidh.vehicle.plate;
         },
         error => {
           alert(error.text());
