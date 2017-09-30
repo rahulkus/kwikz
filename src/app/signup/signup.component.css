@@ -53,3 +53,19 @@
 .register--text{
   color: #4e4e4e;
 }
+.regSuccessMessage, .regFailureMessage{
+    font-size: 18px;
+    text-align: center;
+}
+.regSuccessMessage{
+    color:green
+}
+.regFailureMessage{
+    color:red;
+}
+.regSuccessMessage .fa-check-circle{
+    color:green;
+}
+.regFailureMessage .fa-times-circle{
+    color:red;
+}

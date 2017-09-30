@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { contentHeaders } from '../common/headers.component';
 import { DomSanitizer, SafeHtml } from "@angular/platform-browser";
 import { NguiAutoCompleteModule } from '@ngui/auto-complete';
-
+import * as myGlobals from '../global.apis';
 
 @Component({
   selector: 'app-sell',
@@ -15,6 +15,7 @@ import { NguiAutoCompleteModule } from '@ngui/auto-complete';
 export class SellComponent implements OnInit {
   constructor(public router: Router, public http: Http) {
   }
+  postmodel: any = {};
   selectedArray:any = [];
   place:string = 'Model';
   isRadioSelected:boolean = false;
@@ -160,10 +161,10 @@ Ford = ['Anglia', 'Bronco', 'Capri', 'Cortina', 'Courier', 'Deluxe', 'Econovan',
       .subscribe(
         response => {
 			//console.log(response.json().idh);
-			(<HTMLInputElement>document.getElementById("carMake")).value = response.json().idh.vehicle.make;
-			(<HTMLInputElement>document.getElementById("carModel")).value = response.json().idh.vehicle.model;
+			(<HTMLInputElement>document.getElementById("make")).value = response.json().idh.vehicle.make;
+			(<HTMLInputElement>document.getElementById("model")).value = response.json().idh.vehicle.model;
 			(<HTMLInputElement>document.getElementById("carYear")).value = response.json().idh.vehicle.year_of_manufacture;
-			(<HTMLInputElement>document.getElementById("exteriorColour")).value = response.json().idh.vehicle.main_colour;
+			(<HTMLInputElement>document.getElementById("exterior_color")).value = response.json().idh.vehicle.main_colour;
 			(<HTMLInputElement>document.getElementById("bodystyle")).value = response.json().idh.vehicle.body_style;
 			(<HTMLInputElement>document.getElementById("fuelType")).value = response.json().idh.vehicle.fuel_type;
 			(<HTMLInputElement>document.getElementById("noOfOwners")).value = response.json().idh.vehicle.number_of_owners;
@@ -176,5 +177,18 @@ Ford = ['Anglia', 'Bronco', 'Capri', 'Cortina', 'Courier', 'Deluxe', 'Econovan',
         }
       );
   }
-
+  
+  createPost(){
+    this.http.post(myGlobals.createAPIPath, this.postmodel, { headers: contentHeaders })
+    .subscribe(
+        response => {
+            alert(response);
+        },
+        error => {
+            alert(error.text());
+            console.log(error.text());
+        }
+    );
+  }
+  
 }

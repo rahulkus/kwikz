@@ -10,25 +10,29 @@ import * as myGlobals from '../global.apis';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-constructor(public router: Router, public http: Http) {
-  }
+    public regSuccessMessage: string;
+    public regFailureMessage: string;
+    public response: string;
+    constructor(public router: Router, public http: Http) {
+        
+    }
 
-  Signup(event, fname, lname, mobile, email, password) {
-    event.preventDefault();
-    let body = JSON.stringify({ fname, lname, mobile, email, password });
-    this.http.post(myGlobals.registerAPIPath, body, { headers: contentHeaders })
-      .subscribe(
-        response => {
-          localStorage.setItem('id_token', response.json().token);
-          localStorage.setItem('user', email);
-          window.location.replace('/home');
-        },
-        error => {
-          alert(error.text());
-          console.log(error.text());
-        }
-      );
-  }
+    Signup(event, fname, lname, mobile, email, password) {
+        event.preventDefault();
+        let body = JSON.stringify({ fname, lname, mobile, email, password });
+        this.http.post(myGlobals.registerAPIPath, body, { headers: contentHeaders })
+          .subscribe(
+            response => {
+                this.response = 'ok';
+                this.regSuccessMessage = response.json().message;
+            },
+            error => {
+                this.response = 'fail';
+                this.regFailureMessage = error.text();
+                console.log(error.text());
+            }
+          );
+    }
 
   login(event) {
     event.preventDefault();
