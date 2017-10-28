@@ -21,10 +21,10 @@
 	       </form>
             <p class="carDetailsHeading">Enter your car details.</p>
              <form role="form" #f="ngForm" (ngSubmit)="createPost()">
-               <input type="hidden" [(ngModel)]="postmodel.category_id" #category_id="ngModel" id="category_id" name="category_id" value="1">
-               <input type="hidden" [(ngModel)]="postmodel.location" #location="ngModel" id="location" name="location" value="NewZealand">
-               <input type="hidden" [(ngModel)]="postmodel.main_category" #category_id="ngModel" id="main_category" name="main_category" value="Cars">
-               <input type="hidden" [(ngModel)]="postmodel.amount" #amount="ngModel" id="amount" name="amount" value="10">
+               <input type="hidden" id="category_id" name="category_id" value="1" [(ngModel)]="postmodel.category_id" #category_id="ngModel"/>
+               <input type="hidden" [(ngModel)]="postmodel.location" #location="ngModel" id="location" name="location" value="NewZealand"/>
+               <input type="hidden" [(ngModel)]="postmodel.main_category" #category_id="ngModel" id="main_category" name="main_category" value="Cars"/>
+               <input type="hidden" [(ngModel)]="postmodel.amount" #amount="ngModel" id="amount" name="amount" value="10"/>
                <div class="row">
                   <div class="col-xs-12">
                      <div class="input-group margin--15 col-xs-12">
@@ -215,18 +215,18 @@
                      <label for="carFeatures" class="">Features</label>
                   </div>
                   <div class="col-xs-6">
-                     <div class="checkbox"><label><input type="checkbox" id="abs_brakes" name="abs_brakes" value="" [(ngModel)]="postmodel.abs_brakes" #abs_brakes="ngModel">ABS brakes</label></div>
-                     <div class="checkbox"><label><input type="checkbox" id="alarm" name="alarm" value="" [(ngModel)]="postmodel.alarm" #alarm="ngModel">Alarm</label></div>
-                     <div class="checkbox"><label><input type="checkbox" id="central_locking" name="central_locking" value="" [(ngModel)]="postmodel.central_locking" #central_locking="ngModel">Central locking</label></div>
-                     <div class="checkbox"><label><input type="checkbox" id="passenger_airbag" name="passenger_airbag" value="" [(ngModel)]="postmodel.passenger_airbag" #passenger_airbag="ngModel">Passenger airbag</label></div>
-                     <div class="checkbox"><label><input type="checkbox" id="sunroof" name="sunroof" value="" [(ngModel)]="postmodel.sunroof" #sunroof="ngModel">Sunroof</label></div>
+                     <div class="checkbox"><label><input type="checkbox" id="abs_brakes" name="abs_brakes" value="0" [(ngModel)]="postmodel.abs_brakes" #abs_brakes="ngModel">ABS brakes</label></div>
+                     <div class="checkbox"><label><input type="checkbox" id="alarm" name="alarm" value="0" [(ngModel)]="postmodel.alarm" #alarm="ngModel">Alarm</label></div>
+                     <div class="checkbox"><label><input type="checkbox" id="central_locking" name="central_locking" value="0" [(ngModel)]="postmodel.central_locking" #central_locking="ngModel">Central locking</label></div>
+                     <div class="checkbox"><label><input type="checkbox" id="passenger_airbag" name="passenger_airbag" value="0" [(ngModel)]="postmodel.passenger_airbag" #passenger_airbag="ngModel">Passenger airbag</label></div>
+                     <div class="checkbox"><label><input type="checkbox" id="sunroof" name="sunroof" value="0" [(ngModel)]="postmodel.sunroof" #sunroof="ngModel">Sunroof</label></div>
                   </div>
                   <div class="col-xs-6">
-                     <div class="checkbox"><label><input type="checkbox" id="air_conditioning" name="air_conditioning" value="" [(ngModel)]="postmodel.air_conditioning" #air_conditioning="ngModel">Air conditioning</label></div>
-                     <div class="checkbox"><label><input type="checkbox" id="alloy_wheels" name="alloy_wheels" value="" [(ngModel)]="postmodel.alloy_wheels" #alloy_wheels="ngModel">Alloy wheels</label></div>
-                     <div class="checkbox"><label><input type="checkbox" id="driver_airbag" name="driver_airbag" value="" [(ngModel)]="postmodel.driver_airbag" #driver_airbag="ngModel">Driver airbag</label></div>
-                     <div class="checkbox"><label><input type="checkbox" id="power_steering" name="power_steering" value="" [(ngModel)]="postmodel.power_steering" #power_steering="ngModel">Power steering</label></div>
-                     <div class="checkbox"><label><input type="checkbox" id="towbar" name="towbar" value="" [(ngModel)]="postmodel.towbar" #towbar="ngModel">Towbar</label></div>
+                     <div class="checkbox"><label><input type="checkbox" id="air_conditioning" name="air_conditioning" value="0" [(ngModel)]="postmodel.air_conditioning" #air_conditioning="ngModel">Air conditioning</label></div>
+                     <div class="checkbox"><label><input type="checkbox" id="alloy_wheels" name="alloy_wheels" value="0" [(ngModel)]="postmodel.alloy_wheels" #alloy_wheels="ngModel">Alloy wheels</label></div>
+                     <div class="checkbox"><label><input type="checkbox" id="driver_airbag" name="driver_airbag" value="0" [(ngModel)]="postmodel.driver_airbag" #driver_airbag="ngModel">Driver airbag</label></div>
+                     <div class="checkbox"><label><input type="checkbox" id="power_steering" name="power_steering" value="0" [(ngModel)]="postmodel.power_steering" #power_steering="ngModel">Power steering</label></div>
+                     <div class="checkbox"><label><input type="checkbox" id="towbar" name="towbar" value="0" [(ngModel)]="postmodel.towbar" #towbar="ngModel">Towbar</label></div>
                   </div>
                </div>
                <div class="row">

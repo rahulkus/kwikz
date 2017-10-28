@@ -1,7 +1,7 @@
 <div class="signup pull-right center-block jumbotron">
   <div class="row">
     <h3 class="text-center register--text">Register</h3>
-    <p *ngIf="response == 'fail'" class="regFailureMessage"><i class="fa fa-times-circle" aria-hidden="true"></i> Registration has completed successfully</p>
+    <p *ngIf="response == 'fail'" class="regFailureMessage"><i class="fa fa-times-circle" aria-hidden="true"></i> {{regFailureMessage}}</p>
     <p *ngIf="response == 'ok'" class="regSuccessMessage"><i class="fa fa-check-circle" aria-hidden="true"></i>{{regSuccessMessage}}</p>
     <form role="form" (submit)="Signup($event, fname.value, lname.value, mobile.value, email.value, password.value)">
       <div class="input-group margin--15">
