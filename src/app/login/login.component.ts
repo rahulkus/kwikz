@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
     this.http.post(myGlobals.loginAPIPath, body, { headers: contentHeaders })
       .subscribe(
         response => {
+          localStorage.setItem('token', response.json().data.token);
           localStorage.setItem('id_token', 'true');
           localStorage.setItem('user', email);
           this.router.navigate(['home']);

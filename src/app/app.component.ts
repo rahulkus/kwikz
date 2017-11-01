@@ -19,6 +19,7 @@ public userLoggedIn: boolean;
 
   logout() {
     localStorage.removeItem('id_token');
+    localStorage.removeItem('token');
     localStorage.removeItem('user');
     this.router.navigate(['login']);
     this.userLoggedIn = false;
