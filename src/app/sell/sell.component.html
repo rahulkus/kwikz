@@ -20,7 +20,7 @@
                </div>
 	       </form>
             <p class="carDetailsHeading">Enter your car details.</p>
-             <form role="form" #f="ngForm">
+             <form role="form" name="postForm" novalidate>
                <input type="hidden" id="category_id" name="category_id" [(ngModel)]="postmodel.category_id" #category_id="ngModel"/>
                <input type="hidden" [(ngModel)]="postmodel.location" #location="ngModel" id="location" name="location" value="NewZealand"/>
                <input type="hidden" [(ngModel)]="postmodel.main_category" #category_id="ngModel" id="main_category" name="main_category" value="Cars"/>
@@ -29,8 +29,7 @@
                   <div class="col-xs-12">
                      <div class="input-group margin--15 col-xs-12">
                         <label for="title" class="postTitle">Post Title</label>
-                        <input type="text" class="form-control post-title" id="title" name="title" [(ngModel)]="postmodel.title" #title="ngModel" placeholder="post title">
-
+                        <input type="text" class="form-control post-title" id="title" name="title" [(ngModel)]="postmodel.title" #title="ngModel" ng-model="posttitle" placeholder="post title" required>
                      </div>
                   </div>
                </div>
@@ -38,8 +37,7 @@
                   <div class="col-xs-12">
                      <div class="input-group margin--15 col-xs-12">
                         <label for="body" class="postBody">Post Body</label>
-                        <input type="text" class="form-control post-title" id="body" name="body" [(ngModel)]="postmodel.body" #body="ngModel" placeholder="post body">
-
+                        <input type="text" class="form-control post-title" id="body" name="body" [(ngModel)]="postmodel.body" #body="ngModel" ng-model="body" placeholder="post body" required>
                      </div>
                   </div>
                </div>
@@ -47,12 +45,12 @@
                   <div class="col-xs-6">
                      <div class="input-group margin--15 col-xs-12">
                         <label for="carMake" class="">Make</label>
-                        <input auto-complete (keyup)="clearInput(inputValue)" class="form-control plate-number" id="make" name="Make"
+                        <input auto-complete (keyup)="clearInput(inputValue)" class="form-control plate-number" id="make" name="make"
                         [source]="carMakeArray"
                         (valueChanged)="valueChanged($event)"
                         placeholder="Make"
                         [max-num-list]="15"
-                        [ngModel]="postmodel.make" #make="ngModel"/>
+                        [(ngModel)]="postmodel.make" #make="ngModel"/>
                      </div>
                   </div>
                   <div class="col-xs-6">
@@ -247,7 +245,7 @@
                   </div>
                </div>
                <br/>
-               <button type="submit" class="btn btn-default nxt-btn" (click)="onClickChangeT('carDetailsbtn')">NEXT</button>
+               <button type="submit" class="btn btn-default nxt-btn" (click)="onClickChangeT('carDetailsbtn')" data-ng-disabled="postForm.$invalid">NEXT</button>
             </form>
          </div>
          <div role="tabpanel" [class.active]="toTrue" [class.in]="toTrue" id="ListingDetails" class="tab-pane fade" #tabsRef>

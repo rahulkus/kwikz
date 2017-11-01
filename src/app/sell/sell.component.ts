@@ -15,7 +15,7 @@ import * as myGlobals from '../global.apis';
 export class SellComponent implements OnInit {
   constructor(public router: Router, public http: Http) {
   }
-  postmodel = {'category_id':'1', 'location': 'New Zealand', 'main_category': 'Cars', 'amount': '10', 'abs_brakes':false, 'alarm':false, 'central_locking':false, 'passenger_airbag':false, 'sunroof': false, 'air_conditioning':false, 'alloy_wheels':false, 'driver_airbag':false, 'power_steering':false, 'towbar':false, 'token': ''};
+  postmodel = {'category_id':'1', 'location': 'New Zealand', 'main_category': 'Cars', 'amount': '10', 'abs_brakes':false, 'alarm':false, 'central_locking':false, 'passenger_airbag':false, 'sunroof': false, 'air_conditioning':false, 'alloy_wheels':false, 'driver_airbag':false, 'power_steering':false, 'towbar':false};
   selectedArray:any = [];
   place:string = 'Model';
   isRadioSelected:boolean = false;
@@ -180,7 +180,7 @@ Ford = ['Anglia', 'Bronco', 'Capri', 'Cortina', 'Courier', 'Deluxe', 'Econovan',
   }
 
   createPost(){
-    this.postmodel.token = localStorage.getItem('token');
+    contentHeaders.append('Authorization', 'bearer ' + localStorage.getItem('token'));
     this.http.post(myGlobals.createAPIPath, this.postmodel, { headers: contentHeaders })
     .subscribe(
         response => {
