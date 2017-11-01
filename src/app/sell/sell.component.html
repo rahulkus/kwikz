@@ -17,11 +17,11 @@
                   <label class="" for="plateNumber">Please enter your plate number or VIN.</label>
                   <input type="text" #plate class="form-control  plate-number" id="" placeholder="Enter your number plate or VIN">
                    <button type="submit" class="btn btn-default carJamButton">Get car details</button>
-               </div>               
+               </div>
 	       </form>
             <p class="carDetailsHeading">Enter your car details.</p>
-             <form role="form" #f="ngForm" (ngSubmit)="createPost()">
-               <input type="hidden" id="category_id" name="category_id" value="1" [(ngModel)]="postmodel.category_id" #category_id="ngModel"/>
+             <form role="form" #f="ngForm">
+               <input type="hidden" id="category_id" name="category_id" [(ngModel)]="postmodel.category_id" #category_id="ngModel"/>
                <input type="hidden" [(ngModel)]="postmodel.location" #location="ngModel" id="location" name="location" value="NewZealand"/>
                <input type="hidden" [(ngModel)]="postmodel.main_category" #category_id="ngModel" id="main_category" name="main_category" value="Cars"/>
                <input type="hidden" [(ngModel)]="postmodel.amount" #amount="ngModel" id="amount" name="amount" value="10"/>
@@ -30,7 +30,16 @@
                      <div class="input-group margin--15 col-xs-12">
                         <label for="title" class="postTitle">Post Title</label>
                         <input type="text" class="form-control post-title" id="title" name="title" [(ngModel)]="postmodel.title" #title="ngModel" placeholder="post title">
-                         
+
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-xs-12">
+                     <div class="input-group margin--15 col-xs-12">
+                        <label for="body" class="postBody">Post Body</label>
+                        <input type="text" class="form-control post-title" id="body" name="body" [(ngModel)]="postmodel.body" #body="ngModel" placeholder="post body">
+
                      </div>
                   </div>
                </div>
@@ -199,7 +208,7 @@
                         [source]="WoFArray"
                         (valueChanged)="valueChanged($event)"
                         placeholder=""
-                        [(ngModel)]="postmodel.Wof_expires" #Wof_expires="ngModel" 
+                        [(ngModel)]="postmodel.Wof_expires" #Wof_expires="ngModel"
                         />
                      </div>
                   </div>
@@ -215,18 +224,18 @@
                      <label for="carFeatures" class="">Features</label>
                   </div>
                   <div class="col-xs-6">
-                     <div class="checkbox"><label><input type="checkbox" id="abs_brakes" name="abs_brakes" value="0" [(ngModel)]="postmodel.abs_brakes" #abs_brakes="ngModel">ABS brakes</label></div>
-                     <div class="checkbox"><label><input type="checkbox" id="alarm" name="alarm" value="0" [(ngModel)]="postmodel.alarm" #alarm="ngModel">Alarm</label></div>
-                     <div class="checkbox"><label><input type="checkbox" id="central_locking" name="central_locking" value="0" [(ngModel)]="postmodel.central_locking" #central_locking="ngModel">Central locking</label></div>
-                     <div class="checkbox"><label><input type="checkbox" id="passenger_airbag" name="passenger_airbag" value="0" [(ngModel)]="postmodel.passenger_airbag" #passenger_airbag="ngModel">Passenger airbag</label></div>
-                     <div class="checkbox"><label><input type="checkbox" id="sunroof" name="sunroof" value="0" [(ngModel)]="postmodel.sunroof" #sunroof="ngModel">Sunroof</label></div>
+                     <div class="checkbox"><label><input type="checkbox" id="abs_brakes" name="abs_brakes" [(ngModel)]="postmodel.abs_brakes" #abs_brakes="ngModel">ABS brakes</label></div>
+                     <div class="checkbox"><label><input type="checkbox" id="alarm" name="alarm" [(ngModel)]="postmodel.alarm" #alarm="ngModel">Alarm</label></div>
+                     <div class="checkbox"><label><input type="checkbox" id="central_locking" name="central_locking" [(ngModel)]="postmodel.central_locking" #central_locking="ngModel">Central locking</label></div>
+                     <div class="checkbox"><label><input type="checkbox" id="passenger_airbag" name="passenger_airbag" [(ngModel)]="postmodel.passenger_airbag" #passenger_airbag="ngModel">Passenger airbag</label></div>
+                     <div class="checkbox"><label><input type="checkbox" id="sunroof" name="sunroof" [(ngModel)]="postmodel.sunroof" #sunroof="ngModel">Sunroof</label></div>
                   </div>
                   <div class="col-xs-6">
-                     <div class="checkbox"><label><input type="checkbox" id="air_conditioning" name="air_conditioning" value="0" [(ngModel)]="postmodel.air_conditioning" #air_conditioning="ngModel">Air conditioning</label></div>
-                     <div class="checkbox"><label><input type="checkbox" id="alloy_wheels" name="alloy_wheels" value="0" [(ngModel)]="postmodel.alloy_wheels" #alloy_wheels="ngModel">Alloy wheels</label></div>
-                     <div class="checkbox"><label><input type="checkbox" id="driver_airbag" name="driver_airbag" value="0" [(ngModel)]="postmodel.driver_airbag" #driver_airbag="ngModel">Driver airbag</label></div>
-                     <div class="checkbox"><label><input type="checkbox" id="power_steering" name="power_steering" value="0" [(ngModel)]="postmodel.power_steering" #power_steering="ngModel">Power steering</label></div>
-                     <div class="checkbox"><label><input type="checkbox" id="towbar" name="towbar" value="0" [(ngModel)]="postmodel.towbar" #towbar="ngModel">Towbar</label></div>
+                     <div class="checkbox"><label><input type="checkbox" id="air_conditioning" name="air_conditioning" [(ngModel)]="postmodel.air_conditioning" #air_conditioning="ngModel">Air conditioning</label></div>
+                     <div class="checkbox"><label><input type="checkbox" id="alloy_wheels" name="alloy_wheels" [(ngModel)]="postmodel.alloy_wheels" #alloy_wheels="ngModel">Alloy wheels</label></div>
+                     <div class="checkbox"><label><input type="checkbox" id="driver_airbag" name="driver_airbag" [(ngModel)]="postmodel.driver_airbag" #driver_airbag="ngModel">Driver airbag</label></div>
+                     <div class="checkbox"><label><input type="checkbox" id="power_steering" name="power_steering" [(ngModel)]="postmodel.power_steering" #power_steering="ngModel">Power steering</label></div>
+                     <div class="checkbox"><label><input type="checkbox" id="towbar" name="towbar" [(ngModel)]="postmodel.towbar" #towbar="ngModel">Towbar</label></div>
                   </div>
                </div>
                <div class="row">
@@ -237,8 +246,8 @@
                      </div>
                   </div>
                </div>
-               <br/>                                    
-               <button type="submit" class="btn btn-default nxt-btn">Create Post</button>
+               <br/>
+               <button type="submit" class="btn btn-default nxt-btn" (click)="onClickChangeT('carDetailsbtn')">NEXT</button>
             </form>
          </div>
          <div role="tabpanel" [class.active]="toTrue" [class.in]="toTrue" id="ListingDetails" class="tab-pane fade" #tabsRef>
@@ -274,8 +283,8 @@
                      [source]="approxValueArray"
                      (valueChanged)="valueChanged($event)"
                      placeholder="choose..."
-                     [(ngModel)]="approxValue" 
-                     />                     
+                     [(ngModel)]="approxValue"
+                     />
                   </div>
                </div>
                <div class="row form-group">
@@ -300,9 +309,9 @@
                         [source]="fixedLengthArray"
                         (valueChanged)="valueChanged($event)"
                          placeholder=""
-                         [(ngModel)]="fxdLength" 
-                         [disabled]="!isRadioSelected" 
-                        /> 
+                         [(ngModel)]="fxdLength"
+                         [disabled]="!isRadioSelected"
+                        />
                        </div>
                   </div>
                   <div class="col-xs-6">
@@ -316,10 +325,10 @@
                      [source]="bestContactArray"
                      (valueChanged)="valueChanged($event)"
                      placeholder=""
-                     [(ngModel)]="bestContactTime" 
-                     />                     
+                     [(ngModel)]="bestContactTime"
+                     />
                   </div>
-               </div>               
+               </div>
             </form>
             <button type="submit" class="btn btn-default nxt-btn" (click)="onClickChangeT('carListingbtn')">NEXT</button>
             </div>
