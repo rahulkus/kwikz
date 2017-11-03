@@ -1,11 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule, Http, RequestOptions } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import {  provideAuth, AuthHttp, AuthConfig } from 'angular2-jwt';
 import { NguiAutoCompleteModule } from '@ngui/auto-complete';
 import { CommonModule } from '@angular/common';
+import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 
 
 import { AuthGuard } from './common/auth.guard.component';
@@ -36,13 +37,14 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     CarpostsComponent,
     PostblocksComponent,
     RelatedadsComponent,
-    MyaccountComponent
+    MyaccountComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     NguiAutoCompleteModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes, {
       useHash: false
     }),
@@ -63,3 +65,4 @@ export class AppModule {
         {image: "../asset/heart-red.png"}
     ];
 }
+platformBrowserDynamic().bootstrapModule(AppModule);

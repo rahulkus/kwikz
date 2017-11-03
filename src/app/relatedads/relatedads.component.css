@@ -3,6 +3,7 @@ a{
 }
 ul{
     list-style: none;
+    padding: 0px;
 }
 .ad-title > a{
     font-size: 16px;
@@ -40,4 +41,12 @@ ul{
     font-size: 24px;
     color: #4e4e4e;
     font-weight: 600;
+}
+.image-holder{
+    overflow: hidden;
+}
+.image-holder > img{
+    min-height: 150px;
+    max-height: 220px;
+    overflow: hidden;
 }

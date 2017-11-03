@@ -16,9 +16,47 @@
 *::-ms-input-placeholder { /* Microsoft Edge */
    color:    #c0c0c0;
 }
-
+ul, ol {
+  margin: 0;
+  list-style: none;
+}    
+.clear {
+  clear: both;
+}
+.promotional-block li {
+  margin-bottom: 30px;
+}
+.promotional-block li:last-child {
+  margin: 0;
+}  
+.promotional-block{
+box-sizing: border-box;
+text-align: center;
+}
+.promotion-heading{
+font-size: 48px;
+color: #4e4e4e;
+margin-bottom: 40px;  
+}
+.imghold {
+  float: left;
+  width: 82px;
+  margin-right: 22px;
+}
+.promo-content{
+  text-align: left;
+  padding-top: 20px;
+}  
+.promotion-subhead{
+font-size: 18px;
+color: #4e4e4e; 
+}
+.promo-details{
+font-size: 16px;
+color: #7a7a7a;   
+}
 .signup {
-  width: 40%;
+width: 75%;
 }
 .input--box{
   padding: 10px 18px;

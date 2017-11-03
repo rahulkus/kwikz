@@ -4,6 +4,9 @@ ul{
 .clearfix{
     clear: both;
 }
+a{
+    text-decoration: none;
+}
 #listing-heading{
     font-size: 18px;
 }
@@ -12,10 +15,10 @@ ul{
     background: #f5f5f5;
     border: 1px solid #9d9d9d;
     margin: auto;
-    border-radius: 5px;
+    border-radius: 2px;
     font-size: 15px;
     height: 30px;
-    padding: 0px 5px;
+    padding: 2px 5px;
 }
 .gvr-btn{
     margin-right: 10px;
@@ -40,11 +43,11 @@ ul{
 .car-details-section{
     margin: 0 auto;
     padding-left: 0px;
-    border-bottom: 1px solid #cfcfcf;
-    display: flex;    
+    display: flex;
+    box-shadow: 0px 4px 0px 0px rgba(209, 207, 207, 0.4);  
 }
 ul.car-details-section li{
-    padding-top: 20px;
+    padding: 10px 0px;
 }
 .imag-carousel{
     margin-top: 10px;
@@ -69,7 +72,7 @@ ul.car-details-section li{
 .nav-tabs > li.active > a,
 .nav-tabs > li > a:hover {
     border: none;
-    color: #4285F4 !important;
+    color: #f75a4d !important;
 }
 .nav-tabs > li > a::after {
     content: "";
