@@ -26,9 +26,7 @@ ul, ol {
 .promotional-block li {
   margin-bottom: 30px;
 }
-.promotional-block li:last-child {
-  margin: 0;
-}  
+
 .promotional-block{
 box-sizing: border-box;
 text-align: center;

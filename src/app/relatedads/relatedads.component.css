@@ -50,3 +50,9 @@ ul{
     max-height: 220px;
     overflow: hidden;
 }
+.grey-divider {
+    border-bottom: 1px #e6e6e6 solid;
+    width: 100%;
+    display: block;
+    margin-bottom: 15px;
+}
