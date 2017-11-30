@@ -2,13 +2,19 @@ body{
   font-family: "Kanit-regular";
 }
 .postBlock-category{
-    height: 163px;
-    border: 1px solid #b3b3b3;
+    padding: 15px;
+    box-sizing: border-box;
+    background: #fbfbfb;
+    box-shadow: 0px 4px 0px 0px rgba(209, 207, 207, 0.4);
+    transition: all .2s ease-in;
 }
 .postblocks-heading{
     font-size: 18px;
     color: #a8a8a8;
     font-family: "Kanit-regular";
+}
+.post-margin{
+    margin-top: 20px;
 }
 .priceAndBtn{
     margin-bottom: 10px;
@@ -19,7 +25,7 @@ body{
 }
 a.buyNow{
     border-radius: 3px;
-    background-color: #a8a8a8;
+    background-color: #f75a4d;
     width: 84px;
     height: auto;
     padding: 4px 8px;
