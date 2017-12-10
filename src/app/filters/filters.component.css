@@ -41,6 +41,22 @@
 .panel-CustHeading{
   padding: 5px 15px;  
 }
+.toggle-class{
+  background: url(/assets/plus_circle.png) center top no-repeat;
+  color: white;
+  height: 14px;
+  width: 14px;
+  margin-top: 4px;
+  display: block;     
+}
+
+a[aria-expanded="true"] span.toggle-class{
+  background: url(/assets/minus-icon.png) center top no-repeat;
+       color: white;
+  height: 14px;
+  width: 14px;
+  display: block;  
+}
 .filtersSection{
   background-color: #eaeaea;
   text-align: left;

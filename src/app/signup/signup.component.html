@@ -1,30 +1,68 @@
-<div class="signup pull-right center-block jumbotron">
-  <div class="row">
-    <h3 class="text-center register--text">Register</h3>
-    <p *ngIf="response == 'fail'" class="regFailureMessage"><i class="fa fa-times-circle" aria-hidden="true"></i> {{regFailureMessage}}</p>
-    <p *ngIf="response == 'ok'" class="regSuccessMessage"><i class="fa fa-check-circle" aria-hidden="true"></i>{{regSuccessMessage}}</p>
-    <form role="form" (submit)="Signup($event, fname.value, lname.value, mobile.value, email.value, password.value)">
-      <div class="input-group margin--15">
-        <span class="input-group-addon"><img src="assets/user-icon-login.png" alt="First Name"></span>
-        <input type="text" #fname class="form-control input--box" id="fname" placeholder="First name" required>
-      </div>
-      <div class="input-group margin--15">
-        <span class="input-group-addon"><img src="assets/user-icon-login.png" alt="Last Name"></span>
-        <input type="text" #lname class="form-control input--box" id="lname" placeholder="Second name" required>
-      </div>
-      <div class="input-group margin--15">
-        <span class="input-group-addon"><img src="assets/phone-icon.png" alt="Contact Number"></span>
-        <input type="number" #mobile class="form-control input--box" id="mobile" placeholder="Mobile number" minlength="8" maxlength="11" required>
-      </div>
-      <div class="input-group margin--15">
-        <span class="input-group-addon"><img src="assets/email-icon.png" alt="Email"></span>
-        <input type="email" #email class="form-control input--box" id="email" placeholder="Email address" required>
-      </div>
-      <div class="input-group margin--15">
-        <span class="input-group-addon"><img src="assets/password.png" alt="Password"></span>
-        <input type="password" #password class="form-control input--box" id="password" placeholder="Password" required>
-      </div>
-      <button type="submit" class="btn btn-default login-btn">REGISTER</button>
-    </form>
+<div class="row">
+    <div class="col-md-6 col-sm-12 promotional-block">
+        <h2 class="promotion-heading">Kwikz Benefits</h2>
+        <ul>
+            <li>
+                <div class="imghold">
+                    <img src="assets/zero-fee-icon.png" />
+                </div>
+                <div class="promo-content">
+                    <span class="promotion-subhead">Zero Success fee</span>
+                    <br/>
+                    <span class="promo-details">(we do not charge any additional success fee)</span>
+                </div>
+                <div class="clear"></div>
+            </li>
+            <li>
+                <div class="imghold">
+                    <img src="assets/price-list-icon.png" />
+                </div>
+                <div class="promo-content">
+                    <span class="promotion-subhead">List car for $10 only</span>
+                    <br/>
+                    <span class="promo-details">(unlimited listing until car is sold)</span>
+                </div>
+                <div class="clear"></div>
+            </li>
+            <li>
+                <div class="imghold">
+                    <img src="assets/dream-car-icon.png" />
+                </div>
+                <div class="promo-content">
+                    <span class="promotion-subhead">Quick and Easy process to find your dream car</span>
+                </div>
+                <div class="clear"></div>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-6 col-sm-12">
+        <div class="signup pull-right center-block jumbotron">
+            <h3 class="text-center register--text">Register</h3>
+            <p *ngIf="response == 'fail'" class="regFailureMessage"><i class="fa fa-times-circle" aria-hidden="true"></i> {{regFailureMessage}}</p>
+            <p *ngIf="response == 'ok'" class="regSuccessMessage"><i class="fa fa-check-circle" aria-hidden="true"></i>{{regSuccessMessage}}</p>
+            <form role="form" (submit)="Signup($event, fname.value, lname.value, mobile.value, email.value, password.value)">
+                <div class="input-group margin--15">
+                    <span class="input-group-addon"><img src="assets/user-icon-login.png" alt="First Name"></span>
+                    <input type="text" #fname class="form-control input--box" id="fname" placeholder="First name" required>
+                </div>
+                <div class="input-group margin--15">
+                    <span class="input-group-addon"><img src="assets/user-icon-login.png" alt="Last Name"></span>
+                    <input type="text" #lname class="form-control input--box" id="lname" placeholder="Second name" required>
+                </div>
+                <div class="input-group margin--15">
+                    <span class="input-group-addon"><img src="assets/phone-icon.png" alt="Contact Number"></span>
+                    <input type="number" #mobile class="form-control input--box" id="mobile" placeholder="Mobile number" minlength="8" maxlength="11" required>
+                </div>
+                <div class="input-group margin--15">
+                    <span class="input-group-addon"><img src="assets/email-icon.png" alt="Email"></span>
+                    <input type="email" #email class="form-control input--box" id="email" placeholder="Email address" required>
+                </div>
+                <div class="input-group margin--15">
+                    <span class="input-group-addon"><img src="assets/password.png" alt="Password"></span>
+                    <input type="password" #password class="form-control input--box" id="password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn btn-default login-btn">REGISTER</button>
+            </form>
+        </div>
   </div>
 </div>

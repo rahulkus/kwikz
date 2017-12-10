@@ -4,18 +4,20 @@ ul{
 .clearfix{
     clear: both;
 }
+a{
+    text-decoration: none;
+}
 #listing-heading{
     font-size: 18px;
 }
 .gvr-btn, .watchlist-btn{
-    color: #4e4e4e;
-    background: #f5f5f5;
-    border: 1px solid #9d9d9d;
+    background: #f75a4d;
+    color : white;
     margin: auto;
     border-radius: 5px;
     font-size: 15px;
-    height: 30px;
-    padding: 0px 5px;
+    height: 28px;
+    padding: 2px 5px;
 }
 .gvr-btn{
     margin-right: 10px;
@@ -40,18 +42,35 @@ ul{
 .car-details-section{
     margin: 0 auto;
     padding-left: 0px;
-    border-bottom: 1px solid #cfcfcf;
-    display: flex;    
+    display: flex;
+    box-shadow: 0px 4px 0px 0px rgba(209, 207, 207, 0.4);  
 }
 ul.car-details-section li{
-    padding-top: 20px;
+    padding: 10px 0px;
 }
 .imag-carousel{
     margin-top: 10px;
 }
-
 .main-box{
-    margin-top: 50px;
+    margin: 50px 0px;
+}
+.grey-divider {
+    border-bottom: 1px #e6e6e6 solid;
+    width: 100%;
+    display: block;
+    margin-bottom: 15px;
+}
+#buy-vehicle-report{
+    border-left: 2px solid #e0e0e0;
+    background: #fafafa;
+    padding: 15px 15px 15px 15px;
+}
+#vehicle-features, #vehicle-description{
+    background: #fafafa;
+    padding: 15px 15px 15px 15px;
+}
+.white-spaces{
+    white-space: nowrap;
 }
 .nav-tabs{
     border-bottom: 0px;
@@ -69,7 +88,7 @@ ul.car-details-section li{
 .nav-tabs > li.active > a,
 .nav-tabs > li > a:hover {
     border: none;
-    color: #4285F4 !important;
+    color: #f75a4d !important;
 }
 .nav-tabs > li > a::after {
     content: "";
@@ -111,7 +130,7 @@ ul.car-details-section li{
     vertical-align: bottom;    
 }
 .leftview {
-    line-height: 40px;
+    line-height: 26px;
     color: #696969;
     width: 44%;
     font-size: 14px;
@@ -133,6 +152,9 @@ ul.car-details-section li{
 .panel-default>.panel-heading{
     margin-bottom: 2px;
 }
+.panel-heading{
+    border-radius: 0px;
+}
 p.breadCrumbs > a {
     color: #4e4e4e;
     font-size: 15px;
@@ -147,6 +169,11 @@ section.car-info{
 .to-bold{
     color: #4e4e4e;
     font-size: 15px;
+}
+.key-details{
+    font-size: 24px;
+    color: #4e4e4e;
+    font-weight: 600;
 }
 
 

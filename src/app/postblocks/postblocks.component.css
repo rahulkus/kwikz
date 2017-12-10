@@ -67,3 +67,7 @@ a.buyNow{
 .clearfix{
     clear: both;
 }
+.ngui-auto-complete-wrapper {
+    background: white !important;
+    z-index: 12 !important;
+}

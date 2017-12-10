@@ -1,7 +1,7 @@
 <div class="row">  
   <div class="col-sm-3">
-          <app-filters></app-filters>
-    </div>
+    <app-filters></app-filters>
+  </div>
     <div class="col-md-9">
       <section class="listing-breadCrumbs row">
           <p class="breadCrumbs">
@@ -21,7 +21,6 @@
         <span>
           <span id="listing-heading">Model No. & Make</span>
           <span><a href="#" class="pull-right watchlist-btn">+ Watchlist</a></span>
-          <span><a href="#" class="pull-right gvr-btn">Get Vehicle Report</a></span>
         </span>
       </section>
       <section class="car-info row">
@@ -103,23 +102,13 @@
       </section>    
 
       <section class="row main-box">
-            <!-- Nav tabs -->
+          <p class="key-details">Key details</p>
+          <span class="grey-divider"></span>
+          <!-- Nav tabs -->
             <div class="card">
-              <ul class="nav nav-tabs" role="tablist">
-                  <li role="presentation" class="active"><a href="#home" class="no-bg" aria-controls="home" role="tab" data-toggle="tab">Description</a></li>
-                  <li role="presentation"><a href="#profile" class="no-bg" aria-controls="profile" role="tab" data-toggle="tab">Specification</a></li>
-                  <li role="presentation"><a href="#messages" class="no-bg" aria-controls="messages" role="tab" data-toggle="tab">Features</a></li>
-                  <li role="presentation"><a href="#settings" class="no-bg" aria-controls="settings" role="tab" data-toggle="tab">Questions & Answers</a></li>
-                  <li role="presentation"><a href="#sellerdealer" class="no-bg" aria-controls="settings" role="tab" data-toggle="tab">Seller/Dealer Details</a></li>
-              </ul>
               <!-- Tab panes -->
-              <div class="tab-content">
-                <div role="tabpanel" class="tab-pane active" id="home">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                </div>
-                <div role="tabpanel" class="tab-pane row" id="profile">
                     <div class="panel-group" id="accordion1">
-                      <div class="panel panel-default col-md-9">
+                      <div class="panel panel-default col-md-12">
                           <div class="panel-heading">
                             <h4 class="panel-title">
                                 <a data-toggle="collapse" data-parent="#accordion1" href="#carSpecification">Car Specification<span class="glyphicon glyphicon-plus-sign pull-right"></span></a>
@@ -291,13 +280,70 @@
                           </div>                      
                       </div>
                     </div>
-                </div>
-                <div role="tabpanel" class="tab-pane" id="messages">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
-                <div role="tabpanel" class="tab-pane" id="settings">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passage..</div>
-                <div role="tabpanel" class="tab-pane" id="sellerdealer">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passage..</div>
-              </div>
+
             </div>
       </section>
+
+      <section class="row main-box"  id="buy-vehicle-report">
+          <p class="key-details">Interested in this vehicle?</p>
+          <span class="grey-divider"></span>
+
+          <div>
+            <div class="col-md-8">
+                Get a full report before purchasing for up-to-date info, plus odometer readings and ownership check.
+            </div>
+            <div class="col-md-4">
+                <a href="#" class="pull-right gvr-btn">Buy Report</a>
+            </div>  
+          </div>
+      </section>
+      
+      <section class="row main-box"  id="vehicle-features">
+          <p class="key-details">Features</p>
+          <span class="grey-divider"></span>
+          <div class="col-md-12">
+              <table width="100%">
+                  <tbody>
+                      <tr>
+                          <td>
+                              <div class="white-spaces">ABS brakes</div>
+                          </td>
+                          <td>
+                              <div class="white-spaces">Air conditioning</div>
+                          </td>
+                          <td>
+                              <div class="white-spaces">Alarm</div>
+                          </td>
+                          <td>
+                              <div class="white-spaces">Alloy wheels</div>
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>
+                              <div class="white-spaces">Central locking</div>
+                          </td>
+                          <td>
+                              <div class="white-spaces">Driver airbag</div>
+                          </td>
+                          <td>
+                              <div class="white-spaces">Passenger airbag</div>
+                          </td>
+                          <td>
+                              <div class="white-spaces">Power steering</div>
+                          </td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+      </section> 
+      
+      <section class="row main-box"  id="vehicle-description">
+          <p class="key-details">Description</p>
+          <span class="grey-divider"></span>
+          <div class="col-md-12">
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+          </div>      
+      </section>    
 
       <section class="row">
         <app-relatedads></app-relatedads>

@@ -18,7 +18,7 @@
 						<li><a [routerLink]="['/sell']"><span class="pad--right--5"><img src="assets/sell-icon.png" alt=""></span>Sell</a></li>
 						<li><a [routerLink]="['/myaccount']"><span class="pad--right--5"><img src="assets/user-icon.png" alt=""></span>My Account</a></li>
 						<li><a [routerLink]="['/home']"><span class="pad--right--5"><img src="assets/help-icon.png" alt=""></span>Help</a></li>
-						<li><a [routerLink]="['/login']" href="#"><span class="pad--right--5"><img class="pad--right--5" src="assets/login-icon.png" alt=""></span>Login</a></li>
+						<li><a [routerLink]="['/login']" href="#"><span><img class="pad--right--5" src="assets/login-icon.png" alt=""></span>Login</a></li>
 					</ul>
 				</div><!--/.nav-collapse -->
 				<div *ngIf="userLoggedIn" class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -28,7 +28,7 @@
 						<li><a (click)="logout()">Logout</a></li>
 						<li><a [routerLink]="['/home']"><span class="glyphicon glyphicon-headphones pad--right--5"></span>Help</a></li>
 					</ul>
-				</div>			 
+				</div>
 			</div>
 		</div>
 	</div>
@@ -78,9 +78,6 @@
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="footer--span text-center" style="padding-top: 28px;">
-					<span>Top brands: </span><span>Toyota  /  </span><span>Nissan  /  </span><span>Mitsubishi  /  </span><span>BMW  /  </span><span>Mercedes</span>
-					<span> | </span>
-					<span>Top models: </span><span>Skyline  /  </span><span>Camery  /  </span><span>Lancer  /  </span><span>Blue Bird  /  </span><span>Markx</span><br/>
 					<span>Policies: </span><span>Terms Of Use  /  </span><span>Security Privacy  /  </span><span>Infrigement</span>
 				</div>
 				<div class="clearfix"></div>
@@ -88,5 +85,4 @@
 		</div>
 	</div>
 	<!-- Company Information -->
-	<div class="text-center company--copyright">Copyright &copy; Cipherermatrix</div>
 </footer>
