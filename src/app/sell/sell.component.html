@@ -48,11 +48,19 @@
                                         <input type="text" class="form-control model-detail custm-input-design" id="model_detail" name="model_detail" placeholder="model details" [(ngModel)]="postmodel.model_detail" #model_detail="ngModel">
                                     </div>
                                 </div>
+<<<<<<< HEAD
                                 <div class="col-xs-6">
                                     <div class="input-group margin--15 col-xs-12">
                                         <label for="carYear" class="">Year</label>
                                         <input type="text" id="carYear" name="carYear" class="form-control car-year custm-input-design" placeholder="year of manufacture" [(ngModel)]="postmodel.carYear" #carYear="ngModel">
                                     </div>
+=======
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="input-group margin--15 col-xs-12">
+                                    <label for="carYear" class="">Year</label>
+                                    <input type="text" id="carYear" name="carYear" class="form-control car-year custm-input-design" placeholder="year of manufacture" [(ngModel)]="postmodel.year_manufacture" #year_manufacture="ngModel">
+>>>>>>> eb6f85bda5e91fee1b4f8f4a9d6b91561072b080
                                 </div>
                             </div>
                             <div class="row">
@@ -280,11 +288,21 @@
                                         <input auto-complete #inputValue class="form-control plate-number custm-input-design" id="fixedLength" name="fxdLength" [source]="fixedLengthArray" (valueChanged)="valueChanged($event)" placeholder="" [(ngModel)]="fxdLength" [disabled]="!isRadioSelected" />
                                     </div>
                                 </div>
+<<<<<<< HEAD
                                 <div class="col-xs-6">
                                     <div class="radio">
                                         <label>
                                             <input type="radio" value="" name="listingDuration">Or, choose an end time</label>
                                     </div>
+=======
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label for="comment">Description:</label>
+                                    <textarea class="form-control" rows="5" id="description" name="description" [(ngModel)]="postmodel.desc" #desc="ngModel"></textarea>
+>>>>>>> eb6f85bda5e91fee1b4f8f4a9d6b91561072b080
                                 </div>
                             </div>
                             <div class="row form-group">
@@ -425,6 +443,7 @@
                             </tbody>
                         </table>
                     </div>
+<<<<<<< HEAD
  
                     <div class="vin-block"  style="margin-top:20px;"> 
                         <p class="carDetailsHeading">Total Fees</p>
@@ -434,3 +453,21 @@
             </div>
         </div>
     </div>
+=======
+                  </div>
+                </form>
+                <button type="submit" class="btn btn-default nxt-btn" (click)="onClickChangeT('carListingbtn')">NEXT</button>
+            </div>
+            <div [ngClass]="{ 'active': showPhotoClass }" [class.in]="showPhotoClass" role="tabpanel" id="Photos" class="tab-pane fade">
+                <h3>Menu 2</h3>
+                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                <button type="submit" class="btn btn-default nxt-btn" (click)="onClickChangeT('showPhotosbtn')">NEXT</button>
+            </div>
+            <div [class.active]="showDetailsClass" [class.in]="showDetailsClass" role="tabpanel" id="Confirmation" class="tab-pane fade">
+                <h3>Menu 3</h3>
+                <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+            </div>
+        </div>
+    </div>
+</div>
+>>>>>>> eb6f85bda5e91fee1b4f8f4a9d6b91561072b080

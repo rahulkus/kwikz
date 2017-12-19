@@ -1,7 +1,7 @@
 
 <!-- Fixed navbar -->
 <nav class="navbar navbar-default navbar-fixed-top">
-	<div *ngIf="!userLoggedIn" class="header-top">
+	<div class="header-top">
 		<div class="container register">
 			<div class="header-top-left">
 				<div class="navbar-header">
@@ -28,7 +28,7 @@
 						<li><a (click)="logout()">Logout</a></li>
 						<li><a [routerLink]="['/home']"><span class="glyphicon glyphicon-headphones pad--right--5"></span>Help</a></li>
 					</ul>
-				</div>			 
+				</div>
 			</div>
 		</div>
 	</div>

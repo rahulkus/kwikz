@@ -7,14 +7,18 @@
       	</div>
       	<div id="collapse1" class="panel-collapse collapse in">
        		 <div class="panel-body">
+             <form role="form" (submit)="keywordSearch($event, keyword.value)">
 				<div class="input-group input-group-md searchField">
-					<input type="text" class="form-control input-box" placeholder="Search">
-					<div class="input-group-btn input-group-shadow">
-						<button class="btn btn-default btn-customize" type="submit">
-						<img src="../assets/search-box.png">
-						</button>
-					</div>
-				</div>				
+
+            <input type="text" #keyword id="keyword" class="form-control input-box" placeholder="Search">
+            <div class="input-group-btn input-group-shadow">
+              <button class="btn btn-default btn-customize" type="submit">
+              <img src="../assets/search-box.png">
+              </button>
+            </div>
+
+				</div>
+               </form>
 			</div>
      	 </div>
     </div>
@@ -69,7 +73,7 @@
 			</div>
      	 </div>
     </div>
-	
+
 	<div class="panel panel-default">
 		<div class="panel-heading panel-CustHeading">
 			<p class="panel-title">
@@ -94,7 +98,7 @@
 				<p>Body Type</p>
 			</div>
      	 </div>
-    </div>	
+    </div>
 
 	<div class="panel panel-default">
 		<div class="panel-heading panel-CustHeading">
@@ -120,9 +124,9 @@
 				<p>color</p>
 			</div>
      	 </div>
-    </div>						
+    </div>
 </div>
-<div class="vehicleReport-block">		  
+<div class="vehicleReport-block">
 	<div class="vehicleReport">
 		<span class="title">Get Vehicle Report</span><br/>
 		<span class="text">Powered by Carjam</span>
