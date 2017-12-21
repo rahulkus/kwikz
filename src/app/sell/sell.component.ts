@@ -15,7 +15,7 @@ import * as myGlobals from '../global.apis';
 export class SellComponent implements OnInit {
   constructor(public router: Router, public http: Http) {
   }
-  postmodel = {'category_id':'1', 'location': 'New Zealand', 'near_offer': '1', 'main_category': 'Cars', 'amount': '10', 'abs_brakes':false, 'alarm':false, 'central_locking':false, 'passenger_airbag':false, 'sunroof': false, 'air_conditioning':false, 'alloy_wheels':false, 'driver_airbag':false, 'power_steering':false, 'towbar':false};
+  postmodel = {'category_id':'1', 'location': 'New Zealand', 'near_offer': '1', 'main_category': 'cars', 'amount': 10, 'abs_brakes':0, 'alarm':0, 'central_locking':0, 'passenger_airbag':0, 'sunroof': 0, 'air_conditioning':0, 'alloy_wheels':0, 'driver_airbag':0, 'power_steering':0, 'towbar':0};
   selectedArray:any = [];
   place:string = 'Model';
   isRadioSelected:boolean = false;
@@ -181,9 +181,40 @@ Ford = ['Anglia', 'Bronco', 'Capri', 'Cortina', 'Courier', 'Deluxe', 'Econovan',
 
   createPost(){
     contentHeaders.append('Authorization', 'bearer ' + localStorage.getItem('token'));
+    if(!(this.postmodel.abs_brakes==0)){
+        this.postmodel.abs_brakes = 1;
+    }
+    if(!(this.postmodel.alarm==0)){
+        this.postmodel.alarm = 1;
+    }
+    if(!(this.postmodel.central_locking==0)){
+        this.postmodel.central_locking = 1;
+    }
+    if(!(this.postmodel.passenger_airbag==0)){
+        this.postmodel.passenger_airbag = 1;
+    }
+    if(!(this.postmodel.sunroof==0)){
+        this.postmodel.sunroof = 1;
+    }
+    if(!(this.postmodel.air_conditioning==0)){
+        this.postmodel.air_conditioning = 1;
+    }
+    if(!(this.postmodel.alloy_wheels==0)){
+        this.postmodel.alloy_wheels = 1;
+    }
+    if(!(this.postmodel.driver_airbag==0)){
+        this.postmodel.driver_airbag = 1;
+    }
+    if(!(this.postmodel.power_steering==0)){
+        this.postmodel.power_steering = 1;
+    }
+    if(!(this.postmodel.towbar==0)){
+        this.postmodel.towbar = 1;
+    }
     this.http.post(myGlobals.createAPIPath, this.postmodel, { headers: contentHeaders })
     .subscribe(
         response => {
+            //localStorage.setItem('token', response._body.post_id);
             alert(response);
         },
         error => {

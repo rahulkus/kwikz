@@ -21,7 +21,7 @@
                     </div>
                 </form>
                 <p class="carDetailsHeading">Enter your car details.</p>
-                <form role="form" #f="ngForm" (ngSubmit)="createPost()">
+                <form role="form" #f="ngForm">
                     <div class="vin-block">
                         <input type="hidden" id="category_id" name="category_id" class="custm-input-design" value="1" [(ngModel)]="postmodel.category_id" #category_id="ngModel" />
                         <input type="hidden" [(ngModel)]="postmodel.location" #location="ngModel" class="custm-input-design" id="location" name="location" value="NewZealand" />
@@ -39,8 +39,8 @@
                         <div class="row">
                             <div class="col-xs-6">
                                 <div class="input-group margin--15 col-xs-12">
-                                    <label for="carMake" class="">Make</label>
-                                    <input auto-complete (keyup)="clearInput(inputValue)" class="form-control custm-input-design" id="make" name="Make" [source]="carMakeArray" (valueChanged)="valueChanged($event)" placeholder="Make" [max-num-list]="15" [ngModel]="postmodel.make" #make="ngModel" />
+                                    <label for="make" class="">Make</label>
+                                    <input auto-complete (keyup)="clearInput(inputValue)" class="form-control custm-input-design" id="make" name="make" [source]="carMakeArray" (valueChanged)="valueChanged($event)" placeholder="Make" [max-num-list]="15" [(ngModel)]="postmodel.make" #make="ngModel" />
                                 </div>
                             </div>
                             <div class="col-xs-6">
