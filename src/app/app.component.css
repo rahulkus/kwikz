@@ -251,3 +251,6 @@ body {
 .pad--right--5{
   padding-right: 5px;
 }
+ngui-auto-complete {
+  z-index: 100 !important;
+}

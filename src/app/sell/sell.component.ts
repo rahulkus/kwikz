@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, ViewEncapsulation } from '@angular/core';
 import { Http } from '@angular/http';
 import { Router } from '@angular/router';
 import { contentHeaders } from '../common/headers.component';
@@ -9,7 +9,8 @@ import * as myGlobals from '../global.apis';
 @Component({
   selector: 'app-sell',
   templateUrl: './sell.component.html',
-  styleUrls: ['./sell.component.css']
+  styleUrls: ['./sell.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 
 export class SellComponent implements OnInit {
