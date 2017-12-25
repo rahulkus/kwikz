@@ -5,6 +5,9 @@ import { contentHeaders } from '../common/headers.component';
 import { DomSanitizer, SafeHtml } from "@angular/platform-browser";
 import { NguiAutoCompleteModule } from '@ngui/auto-complete';
 import * as myGlobals from '../global.apis';
+import { StripeService, Elements, Element as StripeElement, ElementsOptions } from "ngx-stripe";
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import {StripeCheckoutLoader, StripeCheckoutHandler} from 'ng-stripe-checkout';
 
 @Component({
   selector: 'app-sell',
@@ -14,9 +17,12 @@ import * as myGlobals from '../global.apis';
 })
 
 export class SellComponent implements OnInit {
-  constructor(public router: Router, public http: Http) {
+  private stripeCheckoutHandler: StripeCheckoutHandler;
+  constructor(public router: Router, public http: Http,private stripeCheckoutLoader: StripeCheckoutLoader) {
+    
   }
-  postmodel = {'category_id':'1', 'location': 'New Zealand', 'near_offer': '1', 'main_category': 'cars', 'amount': 10, 'abs_brakes':0, 'alarm':0, 'central_locking':0, 'passenger_airbag':0, 'sunroof': 0, 'air_conditioning':0, 'alloy_wheels':0, 'driver_airbag':0, 'power_steering':0, 'towbar':0};
+  postmodel = {'category_id':'1', 'location': 'New Zealand', 'near_offer': '1', 'main_category': 'cars', 'amount': 10, 'title': '', 'make': '', 'model':'', 'year_manufacture':'', 'abs_brakes':0, 'alarm':0, 'central_locking':0, 'passenger_airbag':0, 'sunroof': 0, 'air_conditioning':0, 'alloy_wheels':0, 'driver_airbag':0, 'power_steering':0, 'towbar':0};
+  updatemodel = {'id':'', 'near_offer': '1', 'is_classified': '1', 'amount': 45, 'listing_duration_fixed_length':'', 'onroad_costexcluded':''};
   selectedArray:any = [];
   place:string = 'Model';
   isRadioSelected:boolean = false;
@@ -100,8 +106,29 @@ Ford = ['Anglia', 'Bronco', 'Capri', 'Cortina', 'Courier', 'Deluxe', 'Econovan',
   }
 
   ngOnInit() {
+    this.stripeCheckoutLoader.createHandler({
+            key: 'pk_test_6pRNASCoBOKtIshFeQd4XMUh',
+            token: (token) => {
+                // Do something with the token...
+                console.log('Payment successful!', token);
+            }
+        }).then((handler: StripeCheckoutHandler) => {
+            this.stripeCheckoutHandler = handler;
+        });
   }
 
+    onClickBuy() {
+        this.stripeCheckoutHandler.open({
+            amount: 1500,
+            currency: 'EUR',
+        });
+    }
+    
+    public onClickCancel() {
+        // If the window has been opened, this is how you can close it:
+        this.stripeCheckoutHandler.close();
+    }
+ 
   onClickChangeTab(e: HTMLInputElement){
     console.log(e.id);
   }
@@ -145,6 +172,7 @@ Ford = ['Anglia', 'Bronco', 'Capri', 'Cortina', 'Courier', 'Deluxe', 'Econovan',
       this.showDNClass = false;
       this.showPhotoClass = (this.showPhotoClass == false ? true : false);
       this.toTrue = (this.toTrue ==  true ? false : true);
+      this.updatePost();
     }
     if(clickedBtn == 'showPhotosbtn'){
       this.showPhotoClass = false;
@@ -182,6 +210,7 @@ Ford = ['Anglia', 'Bronco', 'Capri', 'Cortina', 'Courier', 'Deluxe', 'Econovan',
 
   createPost(){
     contentHeaders.append('Authorization', 'bearer ' + localStorage.getItem('token'));
+    this.postmodel.title = this.postmodel.make + ' ' + this.postmodel.model + ' ' + this.postmodel.year_manufacture;
     if(!(this.postmodel.abs_brakes==0)){
         this.postmodel.abs_brakes = 1;
     }
@@ -215,8 +244,8 @@ Ford = ['Anglia', 'Bronco', 'Capri', 'Cortina', 'Courier', 'Deluxe', 'Econovan',
     this.http.post(myGlobals.createAPIPath, this.postmodel, { headers: contentHeaders })
     .subscribe(
         response => {
-            //localStorage.setItem('token', response._body.post_id);
-            alert(response);
+            localStorage.setItem('postId', response.json().post_id);
+            console.log('Post creation request for: ' + response.json().post_id);
         },
         error => {
             alert(error.text());
@@ -224,5 +253,29 @@ Ford = ['Anglia', 'Bronco', 'Capri', 'Cortina', 'Courier', 'Deluxe', 'Econovan',
         }
     );
   }
+  
+  updatePost(){
+    contentHeaders.append('Authorization', 'bearer ' + localStorage.getItem('token'));
+    this.updatemodel.id = localStorage.getItem('postId');
+    //this.updatemodel.listing_duration_end_time = new Date();
+    //if((this.updatemodel.listing_duration_fixed_length == '7 days')){
+        //this.updatemodel.listing_duration_end_time.setDate(this.updatemodel.listing_duration_end_time.getDate() + 7);
+    //}
+    //else{
+        //this.updatemodel.listing_duration_end_time.setDate(this.updatemodel.listing_duration_end_time.getDate() +14);
+    //}
+  
+    this.http.post(myGlobals.updateAPIPath, this.updatemodel, { headers: contentHeaders })
+    .subscribe(
+        response => {
+            console.log('Post creation request for: ' + response.json());
+        },
+        error => {
+            alert(error.text());
+            console.log(error.text());
+        }
+    );
+  }
+
 
 }

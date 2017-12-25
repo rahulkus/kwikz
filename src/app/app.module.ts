@@ -7,6 +7,8 @@ import {  provideAuth, AuthHttp, AuthConfig } from 'angular2-jwt';
 import { NguiAutoCompleteModule } from '@ngui/auto-complete';
 import { CommonModule } from '@angular/common';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+import { NgxStripeModule } from 'ngx-stripe';
+import {StripeCheckoutModule} from 'ng-stripe-checkout';
 
 
 import { AuthGuard } from './common/auth.guard.component';
@@ -25,6 +27,7 @@ import { MyaccountComponent } from './myaccount/myaccount.component';
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp( new AuthConfig({}), http, options);
 }
+
 
 @NgModule({
   declarations: [
@@ -48,7 +51,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     RouterModule.forRoot(routes, {
       useHash: false
     }),
-    
+    NgxStripeModule.forRoot('pk_test_6pRNASCoBOKtIshFeQd4XMUh'),
+    StripeCheckoutModule
   ],
   providers: [
     {

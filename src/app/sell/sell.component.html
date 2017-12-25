@@ -12,7 +12,7 @@
     <div class="row">
         <div class="tab-content">
             <div role="tabpanel" [ngClass]="{ 'active': showDNClass }" id="CarDetails" class="tab-pane fade in active" #carDetails>
-                <form role="form" (submit)="Post($event, plate.value)">
+                <form role="form">
                     <div class="input-group margin--15 col-xs-12 vin-block">
                         <label class="" for="plateNumber">Please enter your plate number or VIN.</label>
                         <input type="text" #plate class="form-control  custm-input-design" id="" placeholder="Enter your number plate or VIN" />
@@ -21,21 +21,12 @@
                     </div>
                 </form>
                 <p class="carDetailsHeading">Enter your car details.</p>
-                <form role="form" #f="ngForm">
+                <form role="form">
                     <div class="vin-block">
                         <input type="hidden" id="category_id" name="category_id" class="custm-input-design" value="1" [(ngModel)]="postmodel.category_id" #category_id="ngModel" />
                         <input type="hidden" [(ngModel)]="postmodel.location" #location="ngModel" class="custm-input-design" id="location" name="location" value="NewZealand" />
                         <input type="hidden" [(ngModel)]="postmodel.main_category" #category_id="ngModel" class="custm-input-design" id="main_category" name="main_category" value="Cars" />
                         <input type="hidden" [(ngModel)]="postmodel.amount" #amount="ngModel" class="custm-input-design" id="amount" name="amount" value="10" />
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <div class="input-group margin--15 col-xs-12">
-                                    <label for="title" class="postTitle">Post Title</label>
-                                    <input type="text" class="form-control post-title custm-input-design" id="title" name="title" [(ngModel)]="postmodel.title" #title="ngModel" placeholder="post title">
-
-                                </div>
-                            </div>
-                        </div>
                         <div class="row">
                             <div class="col-xs-6">
                                 <div class="input-group margin--15 col-xs-12">
@@ -225,86 +216,38 @@
                 </form>
             </div>
             <div role="tabpanel" [class.active]="toTrue" [class.in]="toTrue" id="ListingDetails" class="tab-pane fade" #tabsRef>
-                <form role="form">
+                <form role="form" #f="ngForm">
                   <div class="vin-block">
-                    <div class="row form-group">
-                        <div class="col-xs-12">
-                            <label for="listingType" class="">Listing Type </label>
-                        </div>
-                        <div class="col-xs-6">
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" value="" name="listType">List a classified</label>
-                            </div>
-                        </div>
-                        <div class="col-xs-6">
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" value="" name="listType">Run an auction</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row form-group">
-                        <div class="col-xs-6">
-                            <div class="input-group margin--15 col-xs-12">
-                                <label for="carKilometres " class="">Asking Price $</label>
-                                <input type="number" class="form-control custm-input-design plate-number" id="" placeholder="0.00">
-                            </div>
-                        </div>
-                        <div class="col-xs-6">
-                            <div class="input-group margin--15 col-xs-12">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" value="">Or Near Offer</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row form-group">
-                        <div class="col-xs-6">
-                            <label for="approxValue" class="">Approximate value</label>
-                            <input auto-complete #inputValue class="form-control custm-input-design plate-number" id="approxValue" name="approxValue" [source]="approxValueArray" (valueChanged)="valueChanged($event)" placeholder="choose..." [(ngModel)]="approxValue" />
-                        </div>
-                    </div>
-                    <div class="row form-group">
-                        <div class="col-xs-12">
-                            <label for="listingType" class="">On Road Costs</label>
-                        </div>
-                        <div class="col-xs-6">
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" value="" name="onRoadCosts">Excluded - additional costs may apply</label>
-                            </div>
-                        </div>
-                        <div class="col-xs-6">
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" value="" name="onRoadCosts">Included - vehicle is legally road-worthy</label>
-                            </div>
-                        </div>
-                    </div>
                     <div class="row form-group">
                         <div class="col-xs-12">
                             <label for="listingType" class="">Listing Duration</label>
                         </div>
                         <div class="col-xs-6">
                             <div class="radio">
-                                <label>
-                                    <input type="radio" value="" (click)="onRadioSelect()" name="listingDuration">Fixed length</label>
-                                <input auto-complete #inputValue class="form-control plate-number custm-input-design" id="fixedLength" name="fxdLength" [source]="fixedLengthArray" (valueChanged)="valueChanged($event)" placeholder="" [(ngModel)]="fxdLength" [disabled]="!isRadioSelected" />
+                                <input auto-complete #inputValue class="form-control plate-number custm-input-design" id="fixedLength" name="listing_duration_fixed_length" [source]="fixedLengthArray" (valueChanged)="valueChanged($event)" placeholder="" [(ngModel)]="updatemodel.listing_duration_fixed_length" #listing_duration_fixed_length="ngModel"/>
+                            </div>
+                        </div>
+                   </div>
+                    
+                    <div class="row form-group">
+                        <div class="col-xs-12">
+                            <label for="listingType" class="">On Road Costs</label>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="radio">
+                               <input type="radio" value="1" name="onRoadCosts" [(ngModel)]="updatemodel.onroad_costexcluded" #onroad_costexcluded="ngModel">Excluded - additional costs may apply
                             </div>
                         </div>
                         <div class="col-xs-6">
                             <div class="radio">
-                                <label>
-                                    <input type="radio" value="" name="listingDuration">Or, choose an end time</label>
+                                <input type="radio" value="0" name="onRoadCosts" [(ngModel)]="updatemodel.onroad_costincluded" #onroad_costincluded="ngModel">Included - vehicle is legally road-worthy
                             </div>
                         </div>
                     </div>
                     <div class="row form-group">
                         <div class="col-xs-6">
                             <label for="bestContactTime" class="">Best contact time</label>
-                            <input auto-complete #inputValue class="form-control plate-number custm-input-design" id="bestContactTime" name="bestContactTime" [source]="bestContactArray" (valueChanged)="valueChanged($event)" placeholder="" [(ngModel)]="bestContactTime" />
+                            <input auto-complete #inputValue class="form-control plate-number custm-input-design" id="bestContactTime" name="bestContactTime" [source]="bestContactArray" (valueChanged)="valueChanged($event)" placeholder="" [(ngModel)]="updatemodel.best_contact_time" best_contact_time="ngModel"/>
                         </div>
                     </div>
                   </div>
@@ -317,8 +260,7 @@
                 <button type="submit" class="btn btn-default nxt-btn" (click)="onClickChangeT('showPhotosbtn')">NEXT</button>
             </div>
             <div [class.active]="showDetailsClass" [class.in]="showDetailsClass" role="tabpanel" id="Confirmation" class="tab-pane fade">
-                <h3>Menu 3</h3>
-                <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                <button type="submit" class="btn btn-default nxt-btn" (click)="onClickBuy()">Confrim and Make Payment</button>
             </div>
         </div>
     </div>

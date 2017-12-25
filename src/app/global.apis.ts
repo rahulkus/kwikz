@@ -6,4 +6,5 @@ export const baseAPIPath='http://kwikz.nz/api';
 export const loginAPIPath='http://kwikz.nz/api/auth/login';
 export const registerAPIPath='http://kwikz.nz/api/auth/signup';
 export const createAPIPath='http://kwikz.nz/api/post/store';
+export const updateAPIPath='http://kwikz.nz/api/post/update1';
 export const postAPIPath='';
