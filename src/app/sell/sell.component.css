@@ -62,6 +62,7 @@ label{
     border-radius: 5px;
     background: #0070bb;
     color: white;
+    margin-top: 20px;
 }
 .carDetailsHeading{margin-top:20px;font-size:18px;font-weight:bold}
 .confirmation-details{
@@ -70,10 +71,11 @@ label{
 .carJamButton{
     background: #0070BB;
     color: white;
+    margin-top: 20px;
 }
 .vin-block{
     background: #F7F7F7;
-    padding: 10px 30px;
+    padding: 10px 30px !important;
     box-sizing: border-box;
     box-shadow: 0px 4px 0px 0px rgba(209, 207, 207, 0.4);
 }
