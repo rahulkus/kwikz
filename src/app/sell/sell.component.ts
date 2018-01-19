@@ -30,6 +30,10 @@ export class SellComponent implements OnInit {
   toTrue: boolean = false;
   showPhotoClass = false;
   showDetailsClass = false;
+  displayCarDetails = 'block';
+  displayListingDetails = 'none';
+  displayPhotoDetails = 'none';
+  displayFinalDetails = 'none';
 
   bodyTypeArray = ["Don't Know", 'Convertible', 'Coupe', 'Hatchback', 'Sedan', 'Station Wagon', 'RV/SUV', 'Ute', 'Van'];
   fuelTypeArray = ["Don't Know", 'Petrol', 'Diesel', 'Hybrid', 'Electric', 'CNG', 'LPG', 'Alternative'];
@@ -136,6 +140,7 @@ Ford = ['Anglia', 'Bronco', 'Capri', 'Cortina', 'Courier', 'Deluxe', 'Econovan',
   setVariables(selectedTab: string){
     if(selectedTab == 'carDetailsTab'){
       this.showDNClass = true;
+ 
       this.toTrue = false;
       this.showPhotoClass = false;
       this.showDetailsClass = false;
@@ -143,6 +148,7 @@ Ford = ['Anglia', 'Bronco', 'Capri', 'Cortina', 'Courier', 'Deluxe', 'Econovan',
     if(selectedTab == 'listingDetailsTab'){
       this.toTrue = true;
       this.showPhotoClass = false;
+
       this.showDNClass = false;
       this.showDetailsClass = false;
     }
@@ -161,24 +167,76 @@ Ford = ['Anglia', 'Bronco', 'Capri', 'Cortina', 'Courier', 'Deluxe', 'Econovan',
   }
 
   onClickChangeT(clickedBtn: string){
-
-    if(clickedBtn == 'carDetailsbtn'){
+    if(clickedBtn == 'prevCarDetailsbtn'){
+        
+        this.displayCarDetails = 'block';
+        this.displayListingDetails = 'none';
+        this.displayPhotoDetails = 'none';
+        this.displayFinalDetails = 'none';
+        this.showDNClass = true;
+        this.toTrue = false;
+        this.showPhotoClass = false;
+        this.showDetailsClass = false;
+      }
+    if(clickedBtn == 'nxtCarDetailsbtn'){
+      
+      this.displayCarDetails = 'none';
+      this.displayListingDetails = 'block';
+      this.displayPhotoDetails = 'none';
+      this.displayFinalDetails = 'none';
+      this.showDNClass = true;
+      this.toTrue = true;
       this.showPhotoClass = false;
-      this.showDNClass = (this.showDNClass == true ? false : true);
-      this.toTrue = (this.toTrue ==  false ? true : false);
+      this.showDetailsClass = false;
       this.createPost();
     }
-    if(clickedBtn == 'carListingbtn'){
-      this.showDNClass = false;
-      this.showPhotoClass = (this.showPhotoClass == false ? true : false);
-      this.toTrue = (this.toTrue ==  true ? false : true);
+    if(clickedBtn == 'prevCarListingbtn'){
+        
+        
+        this.displayCarDetails = 'none';
+        this.displayListingDetails = 'block';
+        this.displayPhotoDetails = 'none';
+        this.displayFinalDetails = 'none';
+        this.showDNClass = true;
+        this.toTrue = true;
+        this.showPhotoClass = false;
+        this.showDetailsClass = false;              
+      }    
+    if(clickedBtn == 'nxtCarListingbtn'){
+
+      
+      
+      this.displayCarDetails = 'none';
+      this.displayListingDetails = 'none';
+      this.displayPhotoDetails = 'block';
+      this.displayFinalDetails = 'none';
+      this.showDNClass = true;
+      this.toTrue = true;
+      this.showPhotoClass = true;
+      this.showDetailsClass = false;            
       this.updatePost();
     }
-    if(clickedBtn == 'showPhotosbtn'){
-      this.showPhotoClass = false;
-      this.showDNClass = false;
-      this.toTrue = false;
-      this.showDetailsClass = (this.showDetailsClass ==  false ? true : false);
+    if(clickedBtn == 'prevCarPhotosbtn'){
+        
+        this.displayCarDetails = 'none';
+        this.displayListingDetails = 'none';
+        this.displayPhotoDetails = 'block';
+        this.displayFinalDetails = 'none';
+        this.showDNClass = true;
+        this.toTrue = true;
+        this.showPhotoClass = true;
+        this.showDetailsClass = false;         
+      }    
+    if(clickedBtn == 'nxtPhotosbtn'){
+      
+      this.displayCarDetails = 'none';
+      this.displayListingDetails = 'none';
+      this.displayPhotoDetails = 'none';
+      this.displayFinalDetails = 'block';
+      this.showDNClass = true;
+      this.toTrue = true;
+      this.showPhotoClass = true;
+      this.showDetailsClass = true;         
     }
   }
 
@@ -202,7 +260,7 @@ Ford = ['Anglia', 'Bronco', 'Capri', 'Cortina', 'Courier', 'Deluxe', 'Econovan',
 			(<HTMLInputElement>document.getElementById("carPlate")).value = response.json().hidh.vehicle.plate;
         },
         error => {
-          alert(error.text());
+         // alert(error.text());
           console.log(error.text());
         }
       );
@@ -248,7 +306,7 @@ Ford = ['Anglia', 'Bronco', 'Capri', 'Cortina', 'Courier', 'Deluxe', 'Econovan',
             console.log('Post creation request for: ' + response.json().post_id);
         },
         error => {
-            alert(error.text());
+           // alert(error.text());
             console.log(error.text());
         }
     );
@@ -271,7 +329,7 @@ Ford = ['Anglia', 'Bronco', 'Capri', 'Cortina', 'Courier', 'Deluxe', 'Econovan',
             console.log('Post creation request for: ' + response.json());
         },
         error => {
-            alert(error.text());
+           // alert(error.text());
             console.log(error.text());
         }
     );

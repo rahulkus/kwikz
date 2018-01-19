@@ -13,8 +13,8 @@ export class SignupComponent implements OnInit {
     public regSuccessMessage: string;
     public regFailureMessage: string;
     public response: string;
+    
     constructor(public router: Router, public http: Http) {
-        
     }
 
     Signup(event, fname, lname, mobile, email, password) {

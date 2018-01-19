@@ -1,267 +1,493 @@
-<div class="col-sm-9">
-    <div class="row">
-        <ul class="nav nav-pills nav-justifie">
-            <li [ngClass]="{ 'active': showDNClass }" class="cst-width"><a class="custm-btn-pill custm-darkBlue" data-toggle="pill" href="#CarDetails" (click)="setVariables('carDetailsTab')">Car Details</a></li>
-            <li [class.active]="toTrue" class="cst-width"><a class="custm-btn-pill custm-darkBlue" data-toggle="pill" href="#ListingDetails" (click)="setVariables('listingDetailsTab')">Listing Details</a></li>
-            <li [ngClass]="{ 'active': showPhotoClass }" class="cst-width"><a class="custm-btn-pill custm-darkBlue" data-toggle="pill" href="#Photos" (click)="setVariables('showPhotosTab')">Photos</a></li>
-            <li [class.active]="showDetailsClass" class="cst-width"><a class="custm-btn-pill custm-darkBlue" data-toggle="pill" href="#Confirmation" (click)="setVariables('detailsConfirmationTab')">Confirmation</a></li>
-        </ul>
-    </div>
-</div>
-<div class="col-sm-9 margin-top-50">
-    <div class="row">
-        <div class="tab-content">
-            <div role="tabpanel" [ngClass]="{ 'active': showDNClass }" id="CarDetails" class="tab-pane fade in active" #carDetails>
-                <form role="form">
-                    <div class="input-group margin--15 col-xs-12 vin-block">
-                        <label class="" for="plateNumber">Please enter your plate number or VIN.</label>
-                        <input type="text" #plate class="form-control  custm-input-design" id="" placeholder="Enter your number plate or VIN" />
-                        <br/>
-                        <button type="submit" class="btn btn-default carJamButton">Get car details</button>
-                    </div>
-                </form>
-                <p class="carDetailsHeading">Enter your car details.</p>
-                <form role="form">
-                    <div class="vin-block">
-                        <input type="hidden" id="category_id" name="category_id" class="custm-input-design" value="1" [(ngModel)]="postmodel.category_id" #category_id="ngModel" />
-                        <input type="hidden" [(ngModel)]="postmodel.location" #location="ngModel" class="custm-input-design" id="location" name="location" value="NewZealand" />
-                        <input type="hidden" [(ngModel)]="postmodel.main_category" #category_id="ngModel" class="custm-input-design" id="main_category" name="main_category" value="Cars" />
-                        <input type="hidden" [(ngModel)]="postmodel.amount" #amount="ngModel" class="custm-input-design" id="amount" name="amount" value="10" />
-                        <div class="row">
-                            <div class="col-xs-6">
-                                <div class="input-group margin--15 col-xs-12">
-                                    <label for="make" class="">Make</label>
-                                    <input auto-complete (keyup)="clearInput(inputValue)" class="form-control custm-input-design" id="make" name="make" [source]="carMakeArray" (valueChanged)="valueChanged($event)" placeholder="Make" [max-num-list]="15" [(ngModel)]="postmodel.make" #make="ngModel" />
-                                </div>
-                            </div>
-                            <div class="col-xs-6">
-                                <div class="input-group margin--15 col-xs-12">
-                                    <label for="carModel" class="">Model</label>
-                                    <input auto-complete class="form-control custm-input-design" id="model" name="model" [source]="selectedArray" (valueChanged)="valueChanged($event)" [placeholder]="place" [max-num-list]="15" [(ngModel)]="postmodel.model" #model="ngModel" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-6">
-                                <div class="input-group margin--15 col-xs-12">
-                                    <label for="model_detail" class="">Model detail</label>
-                                    <input type="text" class="form-control model-detail custm-input-design" id="model_detail" name="model_detail" placeholder="model details" [(ngModel)]="postmodel.model_detail" #model_detail="ngModel">
-                                </div>
-                            </div>
-                            <div class="col-xs-6">
-                                <div class="input-group margin--15 col-xs-12">
-                                    <label for="carYear" class="">Year</label>
-                                    <input type="text" id="carYear" name="carYear" class="form-control car-year custm-input-design" placeholder="year of manufacture" [(ngModel)]="postmodel.year_manufacture" #year_manufacture="ngModel">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-6">
-                                <div class="input-group margin--15 col-xs-12">
-                                    <label for="kilometers_used" class="">Kilometres</label>
-                                    <input type="text" class="form-control kilometers_used custm-input-design" id="kilometers_used" name="kilometers_used" placeholder="" [(ngModel)]="postmodel.kilometers_used" #kilometers_used="ngModel">
-                                </div>
-                            </div>
-                            <div class="col-xs-6">
-                                <div class="input-group margin--15 col-xs-12">
-                                    <label for="exterior_color" class="">Exterior colour</label>
-                                    <input type="text" id="exterior_color" name="exterior_color" class="form-control exterior-colour custm-input-design" placeholder="color" [(ngModel)]="postmodel.exterior_color" #exterior_color="ngModel">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-6">
-                                <div class="input-group margin--15 col-xs-12">
-                                    <label for="carDoors" class="">Doors</label>
-                                    <input type="text" class="form-control car-doors custm-input-design" id="doors" name="doors" placeholder="" [(ngModel)]="postmodel.doors" #doors="ngModel">
-                                </div>
-                            </div>
-                            <div class="col-xs-6">
-                                <div class="input-group margin--15 col-xs-12">
-                                    <label for="bodyType" class="">Body Style</label>
-                                    <input auto-complete class="form-control plate-number custm-input-design" id="bodystyle" name="bodyType" [source]="bodyTypeArray" (valueChanged)="valueChanged($event)" placeholder="Body Style" [(ngModel)]="postmodel.body_style" #body_style="ngModel" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-6">
-                                <div class="input-group margin--15 col-xs-12">
-                                    <label for="fuelType" class="">Fuel Type</label>
-                                    <input auto-complete class="form-control plate-number custm-input-design" id="fuelType" name="fuelType" [source]="fuelTypeArray" (valueChanged)="valueChanged($event)" placeholder="Fuel Type" [(ngModel)]="postmodel.fuel_type" #fuel_type="ngModel" />
-                                </div>
-                            </div>
-                            <div class="col-xs-6">
-                                <div class="input-group margin--15 col-xs-12">
-                                    <label for="cylinders" class="">Cylinders</label>
-                                    <input auto-complete class="form-control cylinders custm-input-design" id="cylinders" name="cylinders" [source]="cylindersArray" (valueChanged)="valueChanged($event)" placeholder="Cylinders" [(ngModel)]="postmodel.cylinders" #cylinders="ngModel" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-6">
-                                <div class="input-group margin--15 col-xs-12">
-                                    <label for="engineSize " class="">Engine size</label>
-                                    <input type="text" class="form-control engine_size custm-input-design" id="engine_size" name="engine_size" [(ngModel)]="postmodel.engine_size" #engine_size="ngModel" placeholder="">
-                                </div>
-                            </div>
-                            <div class="col-xs-6">
-                                <div class="input-group margin--15 col-xs-12">
-                                    <label for="transmissionType" class="">Transmission</label>
-                                    <input auto-complete class="form-control transmissionType custm-input-design" id="transmissionType" name="transmissionType" [source]="transmissionArray" (valueChanged)="valueChanged($event)" placeholder="Transmission" [(ngModel)]="postmodel.transmission" #transmission="ngModel" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-6">
-                                <div class="input-group margin--15 col-xs-12">
-                                    <label for="engineSize " class="">4WD</label>
-                                    <input type="text" class="form-control four_wd custm-input-design" id="four_wd" name="four_wd" [(ngModel)]="postmodel.four_wd" #four_wd="ngModel" placeholder="" />
-                                </div>
-                            </div>
-                            <div class="col-xs-6">
-                                <div class="input-group margin--15 col-xs-12">
-                                    <label for="noOfOwners" class="number-of-owners">Number of owners</label>
-                                    <input auto-complete class="form-control number-of-owners custm-input-design" id="noOfOwners" name="noOfOwners" [source]="noOfOwnersArray" (valueChanged)="valueChanged($event)" placeholder="" [(ngModel)]="postmodel.no_of_owners" #no_of_owners="ngModel" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-6">
-                                <div class="input-group margin--15 col-xs-12">
-                                    <label for="importHistory " class="">Import History</label>
-                                    <input auto-complete class="form-control custm-input-design" id="importHistory" name="importHistory" [source]="importHistoryArray" (valueChanged)="valueChanged($event)" placeholder="" [(ngModel)]="postmodel.import_history" #import_history="ngModel" />
-                                </div>
-                            </div>
-                            <div class="col-xs-6">
-                                <div class="input-group margin--15 col-xs-12">
-                                    <label for="registrationExpires" class="">Registration Expires</label>
-                                    <input auto-complete class="form-control custm-input-design" id="registrationExpires" name="registrationExpires" [source]="registrationExpireArray" (valueChanged)="valueChanged($event)" placeholder="" [(ngModel)]="postmodel.registration_exp" #registration_exp="ngModel" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-6">
-                                <div class="input-group margin--15 col-xs-12">
-                                    <label for="WoFExpires" class="">WoF expires</label>
-                                    <input auto-complete class="form-control custm-input-design" id="WoFExpires" name="WoFExpires" [source]="WoFArray" (valueChanged)="valueChanged($event)" placeholder="" [(ngModel)]="postmodel.Wof_expires" #Wof_expires="ngModel" />
-                                </div>
-                            </div>
-                            <div class="col-xs-6">
-                                <div class="input-group margin--15 col-xs-12">
-                                    <label for="carPlate" class="carPlate">Number plate</label>
-                                    <input type="text" id="carPlate" name="carPlate" class="form-control custm-input-design" placeholder="plate number" [(ngModel)]="postmodel.Plate_no_VIN" #Plate_no_VIN="ngModel" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <label for="carFeatures" class="">Features</label>
-                            </div>
-                            <div class="col-xs-6">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" id="abs_brakes" name="abs_brakes" value="0" [(ngModel)]="postmodel.abs_brakes" #abs_brakes="ngModel">ABS brakes</label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" id="alarm" name="alarm" value="0" [(ngModel)]="postmodel.alarm" #alarm="ngModel">Alarm</label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" id="central_locking" name="central_locking" value="0" [(ngModel)]="postmodel.central_locking" #central_locking="ngModel">Central locking</label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" id="passenger_airbag" name="passenger_airbag" value="0" [(ngModel)]="postmodel.passenger_airbag" #passenger_airbag="ngModel">Passenger airbag</label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" id="sunroof" name="sunroof" value="0" [(ngModel)]="postmodel.sunroof" #sunroof="ngModel">Sunroof</label>
-                                </div>
-                            </div>
-                            <div class="col-xs-6">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" id="air_conditioning" name="air_conditioning" value="0" [(ngModel)]="postmodel.air_conditioning" #air_conditioning="ngModel">Air conditioning</label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" id="alloy_wheels" name="alloy_wheels" value="0" [(ngModel)]="postmodel.alloy_wheels" #alloy_wheels="ngModel">Alloy wheels</label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" id="driver_airbag" name="driver_airbag" value="0" [(ngModel)]="postmodel.driver_airbag" #driver_airbag="ngModel">Driver airbag</label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" id="power_steering" name="power_steering" value="0" [(ngModel)]="postmodel.power_steering" #power_steering="ngModel">Power steering</label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" id="towbar" name="towbar" value="0" [(ngModel)]="postmodel.towbar" #towbar="ngModel">Towbar</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <div class="form-group">
-                                    <label for="comment">Description:</label>
-                                    <textarea class="form-control" rows="5" id="description" name="description" [(ngModel)]="postmodel.desc" #desc="ngModel"></textarea>
-                                </div>
-                            </div>
-                        </div>
-                        <br/>
-                        <button type="submit" class="btn btn-default nxt-btn login-btn" (click)="onClickChangeT('carDetailsbtn')">Next</button>
-                    </div>
-                </form>
-            </div>
-            <div role="tabpanel" [class.active]="toTrue" [class.in]="toTrue" id="ListingDetails" class="tab-pane fade" #tabsRef>
-                <form role="form" #f="ngForm">
-                  <div class="vin-block">
-                    <div class="row form-group">
-                        <div class="col-xs-12">
-                            <label for="listingType" class="">Listing Duration</label>
-                        </div>
-                        <div class="col-xs-6">
-                            <div class="radio">
-                                <input auto-complete #inputValue class="form-control plate-number custm-input-design" id="fixedLength" name="listing_duration_fixed_length" [source]="fixedLengthArray" (valueChanged)="valueChanged($event)" placeholder="" [(ngModel)]="updatemodel.listing_duration_fixed_length" #listing_duration_fixed_length="ngModel"/>
-                            </div>
-                        </div>
-                   </div>
-                    
-                    <div class="row form-group">
-                        <div class="col-xs-12">
-                            <label for="listingType" class="">On Road Costs</label>
-                        </div>
-                        <div class="col-xs-6">
-                            <div class="radio">
-                               <input type="radio" value="1" name="onRoadCosts" [(ngModel)]="updatemodel.onroad_costexcluded" #onroad_costexcluded="ngModel">Excluded - additional costs may apply
-                            </div>
-                        </div>
-                        <div class="col-xs-6">
-                            <div class="radio">
-                                <input type="radio" value="0" name="onRoadCosts" [(ngModel)]="updatemodel.onroad_costincluded" #onroad_costincluded="ngModel">Included - vehicle is legally road-worthy
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row form-group">
-                        <div class="col-xs-6">
-                            <label for="bestContactTime" class="">Best contact time</label>
-                            <input auto-complete #inputValue class="form-control plate-number custm-input-design" id="bestContactTime" name="bestContactTime" [source]="bestContactArray" (valueChanged)="valueChanged($event)" placeholder="" [(ngModel)]="updatemodel.best_contact_time" best_contact_time="ngModel"/>
-                        </div>
-                    </div>
-                  </div>
-                </form>
-                <button type="submit" class="btn btn-default nxt-btn" (click)="onClickChangeT('carListingbtn')">NEXT</button>
-            </div>
-            <div [ngClass]="{ 'active': showPhotoClass }" [class.in]="showPhotoClass" role="tabpanel" id="Photos" class="tab-pane fade">
-                <h3>Menu 2</h3>
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-                <button type="submit" class="btn btn-default nxt-btn" (click)="onClickChangeT('showPhotosbtn')">NEXT</button>
-            </div>
-            <div [class.active]="showDetailsClass" [class.in]="showDetailsClass" role="tabpanel" id="Confirmation" class="tab-pane fade">
-                <button type="submit" class="btn btn-default nxt-btn" (click)="onClickBuy()">Confrim and Make Payment</button>
+<form id="msform">
+        <div class="col-sm-9">
+            <div class="row">
+                <ul id="progressbar">
+                    <li [ngClass]="{ 'active': showDNClass }" class="carDetail-img">
+                        <p>Car Details</p>
+                    </li>
+                    <li [class.active]="toTrue" class="carListing-img">
+                        <p>Listing Details</p>
+                    </li>
+                    <li [ngClass]="{ 'active': showPhotoClass }" class="carPost-img">
+                        <p>Photos</p>
+                    </li>
+                    <li [class.active]="showDetailsClass" class="carConfirmation-img">
+                        <p>Confirmation</p>
+                    </li>
+                </ul>
             </div>
         </div>
-    </div>
-</div>
+        <div class="col-sm-9">
+            <div class="row">
+                <fieldset [ngClass]="{ 'active': showDNClass }" id="CarDetails" class="active" #carDetails [style.display]="displayCarDetails">
+                    <p class="post-steps">Step 1 - 4</p>
+                    <form role="form">
+                        <div class="input-group col-xs-12 vin-block">
+                            <label class="" for="plateNumber">Please enter your plate number or VIN.</label>
+                            <input type="text" #plate class="form-control  custm-input-design" id="" placeholder="Enter your number plate or VIN" />
+                            <br/>
+                            <button type="submit" class="btn btn-default primaryButton btn-getDetails">Get car details</button>
+                        </div>
+                    </form>
+                    <p id="manual-details">Enter your car details manually</p>
+                    <form role="form">
+                        <div class="vin-block">
+                            <input type="hidden" id="category_id" name="category_id" class="custm-input-design" value="1" [(ngModel)]="postmodel.category_id" #category_id="ngModel" />
+                            <input type="hidden" [(ngModel)]="postmodel.location" #location="ngModel" class="custm-input-design" id="location" name="location" value="NewZealand" />
+                            <input type="hidden" [(ngModel)]="postmodel.main_category" #category_id="ngModel" class="custm-input-design" id="main_category" name="main_category" value="Cars" />
+                            <input type="hidden" [(ngModel)]="postmodel.amount" #amount="ngModel" class="custm-input-design" id="amount" name="amount" value="10" />
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <div class="input-group margin--15 col-xs-12">
+                                        <label for="make" class="">Make</label>
+                                        <input auto-complete (keyup)="clearInput(inputValue)" class="form-control custm-input-design" id="make" name="make" [source]="carMakeArray" (valueChanged)="valueChanged($event)" [max-num-list]="15" [(ngModel)]="postmodel.make" #make="ngModel" />
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="input-group margin--15 col-xs-12">
+                                        <label for="carModel" class="">Model</label>
+                                        <input auto-complete class="form-control custm-input-design" id="model" name="model" [source]="selectedArray" (valueChanged)="valueChanged($event)" [max-num-list]="15" [(ngModel)]="postmodel.model" #model="ngModel" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <div class="input-group margin--15 col-xs-12">
+                                        <label for="model_detail" class="">Model detail</label>
+                                        <input type="text" class="form-control model-detail custm-input-design" id="model_detail" name="model_detail" [(ngModel)]="postmodel.model_detail" #model_detail="ngModel">
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="input-group margin--15 col-xs-12">
+                                        <label for="carYear" class="">Year</label>
+                                        <input type="text" id="carYear" name="carYear" class="form-control car-year custm-input-design" [(ngModel)]="postmodel.year_manufacture" #year_manufacture="ngModel">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <div class="input-group margin--15 col-xs-12">
+                                        <label for="kilometers_used" class="">Kilometres</label>
+                                        <input type="text" class="form-control kilometers_used custm-input-design" id="kilometers_used" name="kilometers_used" placeholder="" [(ngModel)]="postmodel.kilometers_used" #kilometers_used="ngModel">
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="input-group margin--15 col-xs-12">
+                                        <label for="exterior_color" class="">Exterior colour</label>
+                                        <input type="text" id="exterior_color" name="exterior_color" class="form-control exterior-colour custm-input-design" [(ngModel)]="postmodel.exterior_color" #exterior_color="ngModel">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <div class="input-group margin--15 col-xs-12">
+                                        <label for="carDoors" class="">Doors</label>
+                                        <input type="text" class="form-control car-doors custm-input-design" id="doors" name="doors" [(ngModel)]="postmodel.doors" #doors="ngModel">
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="input-group margin--15 col-xs-12">
+                                        <label for="bodyType" class="">Body Style</label>
+                                        <input auto-complete class="form-control plate-number custm-input-design" id="bodystyle" name="bodyType" [source]="bodyTypeArray" (valueChanged)="valueChanged($event)" [(ngModel)]="postmodel.body_style" #body_style="ngModel" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <div class="input-group margin--15 col-xs-12">
+                                        <label for="fuelType" class="">Fuel Type</label>
+                                        <input auto-complete class="form-control plate-number custm-input-design" id="fuelType" name="fuelType" [source]="fuelTypeArray" (valueChanged)="valueChanged($event)" [(ngModel)]="postmodel.fuel_type" #fuel_type="ngModel" />
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="input-group margin--15 col-xs-12">
+                                        <label for="cylinders" class="">Cylinders</label>
+                                        <input auto-complete class="form-control cylinders custm-input-design" id="cylinders" name="cylinders" [source]="cylindersArray" (valueChanged)="valueChanged($event)" [(ngModel)]="postmodel.cylinders" #cylinders="ngModel" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <div class="input-group margin--15 col-xs-12">
+                                        <label for="engineSize " class="">Engine size</label>
+                                        <input type="text" class="form-control engine_size custm-input-design" id="engine_size" name="engine_size" [(ngModel)]="postmodel.engine_size" #engine_size="ngModel">
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="input-group margin--15 col-xs-12">
+                                        <label for="transmissionType" class="">Transmission</label>
+                                        <input auto-complete class="form-control transmissionType custm-input-design" id="transmissionType" name="transmissionType" [source]="transmissionArray" (valueChanged)="valueChanged($event)" [(ngModel)]="postmodel.transmission" #transmission="ngModel" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <div class="input-group margin--15 col-xs-12">
+                                        <label for="engineSize " class="">4WD</label>
+                                        <input type="text" class="form-control four_wd custm-input-design" id="four_wd" name="four_wd" [(ngModel)]="postmodel.four_wd" #four_wd="ngModel" placeholder="" />
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="input-group margin--15 col-xs-12">
+                                        <label for="noOfOwners" class="number-of-owners">Number of owners</label>
+                                        <input auto-complete class="form-control number-of-owners custm-input-design" id="noOfOwners" name="noOfOwners" [source]="noOfOwnersArray" (valueChanged)="valueChanged($event)" placeholder="" [(ngModel)]="postmodel.no_of_owners" #no_of_owners="ngModel" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <div class="input-group margin--15 col-xs-12">
+                                        <label for="importHistory " class="">Import History</label>
+                                        <input auto-complete class="form-control custm-input-design" id="importHistory" name="importHistory" [source]="importHistoryArray" (valueChanged)="valueChanged($event)" placeholder="" [(ngModel)]="postmodel.import_history" #import_history="ngModel" />
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="input-group margin--15 col-xs-12">
+                                        <label for="registrationExpires" class="">Registration Expires</label>
+                                        <input auto-complete class="form-control custm-input-design" id="registrationExpires" name="registrationExpires" [source]="registrationExpireArray" (valueChanged)="valueChanged($event)" placeholder="" [(ngModel)]="postmodel.registration_exp" #registration_exp="ngModel" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <div class="input-group margin--15 col-xs-12">
+                                        <label for="WoFExpires" class="">WoF expires</label>
+                                        <input auto-complete class="form-control custm-input-design" id="WoFExpires" name="WoFExpires" [source]="WoFArray" (valueChanged)="valueChanged($event)" placeholder="" [(ngModel)]="postmodel.Wof_expires" #Wof_expires="ngModel" />
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="input-group margin--15 col-xs-12">
+                                        <label for="carPlate" class="carPlate">Number plate</label>
+                                        <input type="text" id="carPlate" name="carPlate" class="form-control custm-input-design" [(ngModel)]="postmodel.Plate_no_VIN" #Plate_no_VIN="ngModel" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <label for="carFeatures" class="">Features</label>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" id="abs_brakes" name="abs_brakes" value="0" [(ngModel)]="postmodel.abs_brakes" #abs_brakes="ngModel">ABS brakes</label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" id="alarm" name="alarm" value="0" [(ngModel)]="postmodel.alarm" #alarm="ngModel">Alarm</label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" id="central_locking" name="central_locking" value="0" [(ngModel)]="postmodel.central_locking" #central_locking="ngModel">Central locking</label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" id="passenger_airbag" name="passenger_airbag" value="0" [(ngModel)]="postmodel.passenger_airbag" #passenger_airbag="ngModel">Passenger airbag</label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" id="sunroof" name="sunroof" value="0" [(ngModel)]="postmodel.sunroof" #sunroof="ngModel">Sunroof</label>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" id="air_conditioning" name="air_conditioning" value="0" [(ngModel)]="postmodel.air_conditioning" #air_conditioning="ngModel">Air conditioning</label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" id="alloy_wheels" name="alloy_wheels" value="0" [(ngModel)]="postmodel.alloy_wheels" #alloy_wheels="ngModel">Alloy wheels</label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" id="driver_airbag" name="driver_airbag" value="0" [(ngModel)]="postmodel.driver_airbag" #driver_airbag="ngModel">Driver airbag</label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" id="power_steering" name="power_steering" value="0" [(ngModel)]="postmodel.power_steering" #power_steering="ngModel">Power steering</label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" id="towbar" name="towbar" value="0" [(ngModel)]="postmodel.towbar" #towbar="ngModel">Towbar</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <label for="comment">Description:</label>
+                                        <textarea class="form-control" rows="5" id="description" name="description" [(ngModel)]="postmodel.desc" #desc="ngModel"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-default primaryButton" (click)="onClickChangeT('nxtCarDetailsbtn')">Next</button>
+                        </div>
+                    </form>
+                </fieldset>
+    
+                <fieldset [class.active]="toTrue" [class.in]="toTrue" id="ListingDetails" #tabsRef [style.display]="displayListingDetails">
+                    <p class="post-steps">Step 2 - 4</p>
+                    <form role="form" #f="ngForm">
+                        <div class="col-xs-12 vin-block">
+                            <div class="row form-group">
+                                <div class="col-xs-12">
+                                    <label for="listingType" class="">Listing Duration</label>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="radio">
+                                        <input auto-complete #inputValue class="form-control plate-number custm-input-design" id="fixedLength" name="listing_duration_fixed_length" [source]="fixedLengthArray" (valueChanged)="valueChanged($event)" placeholder="" [(ngModel)]="updatemodel.listing_duration_fixed_length" #listing_duration_fixed_length="ngModel" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-xs-6">
+                                    <div class="input-group margin--15 col-xs-12">
+                                        <label for="carKilometres " class="">Asking Price $</label>
+                                        <input type="number" class="form-control custm-input-design plate-number" id="" placeholder="0.00">
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="input-group margin--15 col-xs-12">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" value="">Or Near Offer</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="row form-group">
+                                <div class="col-xs-12">
+                                    <label for="listingType" class="">On Road Costs</label>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="radio">
+                                        <input type="radio" value="1" name="onRoadCosts" [(ngModel)]="updatemodel.onroad_costexcluded" #onroad_costexcluded="ngModel">Excluded - additional costs may apply
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="radio">
+                                        <input type="radio" value="0" name="onRoadCosts" [(ngModel)]="updatemodel.onroad_costincluded" #onroad_costincluded="ngModel">Included - vehicle is legally road-worthy
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-xs-6">
+                                    <label for="bestContactTime" class="">Best contact time</label>
+                                    <input auto-complete #inputValue class="form-control plate-number custm-input-design" id="bestContactTime" name="bestContactTime" [source]="bestContactArray" (valueChanged)="valueChanged($event)" placeholder="" [(ngModel)]="updatemodel.best_contact_time" best_contact_time="ngModel" />
+                                </div>
+                                <div class="col-xs-6">
+                                    <label for="carLocation" class="">Location</label>
+                                    <input auto-complete #inputValue class="form-control plate-number custm-input-design" id="carLocation" name="carLocation" placeholder="" />
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-default primaryButton" (click)="onClickChangeT('prevCarDetailsbtn')">Previous</button>
+                            <button type="submit" class="btn btn-default primaryButton" (click)="onClickChangeT('nxtCarListingbtn')">Next</button>
+                        </div>
+                    </form>
+                </fieldset>
+    
+                <fieldset [ngClass]="{ 'active': showPhotoClass }" [class.in]="showPhotoClass" id="Photos" [style.display]="displayPhotoDetails">
+                    <p class="post-steps">Step 3 - 4</p>
+                    <div class="col-xs-12 vin-block">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" src="http://127.0.0.1:8000/api/image/upload"></iframe>
+                        </div>
+                        <button type="submit" class="btn btn-default primaryButton" (click)="onClickChangeT('prevCarListingbtn')">Previous</button>
+                        <button type="submit" class="btn btn-default primaryButton" (click)="onClickChangeT('nxtPhotosbtn')">Next</button>                        
+                    </div>
+                </fieldset>
+    
+                <fieldset [class.active]="showDetailsClass" [class.in]="showDetailsClass" id="Confirmation" [style.display]="displayFinalDetails">
+                    <p class="post-steps">Step 4 - 4</p>
+                    <div id="car-details" class="col-xs-12 vin-block">
+                        <h3>Car details</h3>
+                        <span class="grey-divider"></span>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div>Make</div>
+                            </div>
+                            <div class="col-xs-6">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div>Model</div>
+                            </div>
+                            <div class="col-xs-6">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div>Model details</div>
+                            </div>
+                            <div class="col-xs-6">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div>Year</div>
+                            </div>
+                            <div class="col-xs-6">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div>Kilometres</div>
+                            </div>
+                            <div class="col-xs-6">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div>Exterior colour</div>
+                            </div>
+                            <div class="col-xs-6">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div>Doors</div>
+                            </div>
+                            <div class="col-xs-6">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div>Body style</div>
+                            </div>
+                            <div class="col-xs-6">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div>Fuel type</div>
+                            </div>
+                            <div class="col-xs-6">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div>Cylinders</div>
+                            </div>
+                            <div class="col-xs-6">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div>Engine size</div>
+                            </div>
+                            <div class="col-xs-6">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div>Transmission</div>
+                            </div>
+                            <div class="col-xs-6">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div>4WD</div>
+                            </div>
+                            <div class="col-xs-6">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div>Number of owners</div>
+                            </div>
+                            <div class="col-xs-6">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div>Import history</div>
+                            </div>
+                            <div class="col-xs-6">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div>Registration expires</div>
+                            </div>
+                            <div class="col-xs-6">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div>WoF expires</div>
+                            </div>
+                            <div class="col-xs-6">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div>Number plate</div>
+                            </div>
+                            <div class="col-xs-6">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div>Description</div>
+                            </div>
+                            <div class="col-xs-6">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="isting-details" class="col-xs-12 vin-block">
+                        <h3>Listing details</h3>
+                        <span class="grey-divider"></span>
+                        
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div>Listing duration</div>
+                            </div>
+                            <div class="col-xs-6">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div>Asking price</div>
+                            </div>
+                            <div class="col-xs-6">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div>On road costs</div>
+                            </div>
+                            <div class="col-xs-6">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div>Best time to contact</div>
+                            </div>
+                            <div class="col-xs-6">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div>Location</div>
+                            </div>
+                            <div class="col-xs-6">
+                            </div>
+                        </div>                        
+                    </div>
+
+                    <div id="total-fees" class="col-xs-12 vin-block">
+                        <h3>Total fees</h3>
+                    </div>
+
+                    <div class="col-xs-12 vin-block">
+                        <button type="submit" class="btn btn-default primaryButton" (click)="onClickChangeT('prevCarPhotosbtn')">Previous</button>
+                        <button type="submit" class="btn btn-default primaryButton" (click)="onClickBuy()">Confrim and Make Payment</button>                        
+                    </div>
+                </fieldset>
+    
+            </div>
+        </div>
+    </form>
