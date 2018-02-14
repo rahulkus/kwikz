@@ -22,8 +22,10 @@ export class SellComponent implements OnInit {
     
   }
   postmodel = {'category_id':'1', 'location': 'New Zealand', 'near_offer': '1', 'main_category': 'cars', 'amount': 10, 'title': '', 'make': '', 'model':'', 'year_manufacture':'', 'abs_brakes':0, 'alarm':0, 'central_locking':0, 'passenger_airbag':0, 'sunroof': 0, 'air_conditioning':0, 'alloy_wheels':0, 'driver_airbag':0, 'power_steering':0, 'towbar':0};
-  updatemodel = {'id':'', 'near_offer': '1', 'is_classified': '1', 'amount': 45, 'listing_duration_fixed_length':'', 'onroad_costexcluded':''};
+  updatemodel = {'id':0, 'near_offer': 1, 'is_classified': 1, 'amount': 45, 'listing_duration_fixed_length':7, 'onroad_costexcluded':0, 'onroad_costincluded' : 0};
+  singlePostId = {'id':0};
   selectedArray:any = [];
+  singlePost:any = [];
   place:string = 'Model';
   isRadioSelected:boolean = false;
   showDNClass: boolean = true;
@@ -225,7 +227,8 @@ Ford = ['Anglia', 'Bronco', 'Capri', 'Cortina', 'Courier', 'Deluxe', 'Econovan',
         this.showDNClass = true;
         this.toTrue = true;
         this.showPhotoClass = true;
-        this.showDetailsClass = false;         
+        this.showDetailsClass = false;
+        
       }    
     if(clickedBtn == 'nxtPhotosbtn'){
       
@@ -236,16 +239,18 @@ Ford = ['Anglia', 'Bronco', 'Capri', 'Cortina', 'Courier', 'Deluxe', 'Econovan',
       this.showDNClass = true;
       this.toTrue = true;
       this.showPhotoClass = true;
-      this.showDetailsClass = true;         
+      this.showDetailsClass = true;     
+      this.getPost();
     }
   }
 
   Post(event, plate) {
     event.preventDefault();
+    contentHeaders.append('Access-Control-Allow-Origin', '*');
     let body =  plate;
-    let apiURL = 'http://test.carjam.co.nz/api/car/';
-    let key = '7AB2A35AEB2E258220FDAB8B65E5E88B7514BD63';
-    this.http.get(apiURL + '?plate=' + body +'&key='+ key +'&f=json&translate=1')
+    let apiURL = 'http://carjam.co.nz/api/car/';
+    let key = 'AE972CF1CE68DFCE7A9C745A2AF0788FFF09EBF7';
+    this.http.get(apiURL + '?plate=' + body +'&key='+ key +'&f=jsonp&translate=1', {headers: contentHeaders})
       .subscribe(
         response => {
 			//console.log(response.json().idh);
@@ -313,15 +318,21 @@ Ford = ['Anglia', 'Bronco', 'Capri', 'Cortina', 'Courier', 'Deluxe', 'Econovan',
   }
   
   updatePost(){
-    contentHeaders.append('Authorization', 'bearer ' + localStorage.getItem('token'));
-    this.updatemodel.id = localStorage.getItem('postId');
-    //this.updatemodel.listing_duration_end_time = new Date();
-    //if((this.updatemodel.listing_duration_fixed_length == '7 days')){
-        //this.updatemodel.listing_duration_end_time.setDate(this.updatemodel.listing_duration_end_time.getDate() + 7);
-    //}
-    //else{
-        //this.updatemodel.listing_duration_end_time.setDate(this.updatemodel.listing_duration_end_time.getDate() +14);
-    //}
+    this.updatemodel.id = parseInt(localStorage.getItem('postId'));
+    /*if((this.updatemodel.listing_duration_fixed_length = '7 days')){
+        this.updatemodel.listing_duration_fixed_length = 7;
+    }
+    else{
+        this.updatemodel.listing_duration_fixed_length = 14;
+    }*/
+    
+    if(!(this.updatemodel.onroad_costincluded==0)){
+        this.updatemodel.onroad_costincluded = 1;
+    }
+    
+    if(!(this.updatemodel.onroad_costexcluded==0)){
+        this.updatemodel.onroad_costexcluded = 1;
+    }
   
     this.http.post(myGlobals.updateAPIPath, this.updatemodel, { headers: contentHeaders })
     .subscribe(
@@ -333,6 +344,20 @@ Ford = ['Anglia', 'Bronco', 'Capri', 'Cortina', 'Courier', 'Deluxe', 'Econovan',
             console.log(error.text());
         }
     );
+  }
+  
+  getPost(){
+    this.singlePostId.id = parseInt(localStorage.getItem('postId'));
+    this.http.post(myGlobals.singlePostAPIPath, this.singlePostId)
+          .subscribe(
+            response => {
+                this.singlePost = response.json();
+            },
+            error => {
+                alert(error.text());
+                console.log(error.text());
+            }
+        );
   }
 
 

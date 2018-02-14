@@ -19,6 +19,6 @@ export class FiltersComponent implements OnInit {
   }
 
   keywordSearch(event, keyword){
-    this.router.navigate(['home'], {queryParams:{searchTerm: keyword}});
+    this.router.navigate(['postblocks'], {queryParams:{searchTerm: keyword}});
   }
 }
