@@ -277,7 +277,8 @@
                                 </div>
                                 <div class="col-xs-6">
                                     <label for="carLocation" class="">Location</label>
-                                    <input auto-complete #inputValue class="form-control plate-number custm-input-design" id="carLocation" name="carLocation" placeholder="" />
+                                    <input auto-complete #inputValue class="form-control plate-number custm-input-design" type="text" class="form-control" id="carLocation" placeholder="carLocation" name="carLocation" [(ngModel)]="address" #LocationCtrl="ngModel"
+                                    appPlaceLookup (onSelect)="getAddressOnChange($event,LocationCtrl)">                                    
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-default primaryButton" (click)="onClickChangeT('prevCarDetailsbtn')">Previous</button>

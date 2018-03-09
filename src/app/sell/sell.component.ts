@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewChild, ElementRef, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, ViewEncapsulation, EventEmitter, Output } from '@angular/core';
+import {} from '@types/googlemaps';
 import { Http } from '@angular/http';
 import { Router } from '@angular/router';
 import { contentHeaders } from '../common/headers.component';
@@ -8,6 +9,8 @@ import * as myGlobals from '../global.apis';
 import { StripeService, Elements, Element as StripeElement, ElementsOptions } from "ngx-stripe";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import {StripeCheckoutLoader, StripeCheckoutHandler} from 'ng-stripe-checkout';
+
+import { PlaceLookupDirective } from '../place-lookup.directive';
 
 @Component({
   selector: 'app-sell',

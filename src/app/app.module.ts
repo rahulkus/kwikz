@@ -23,6 +23,7 @@ import { CarpostsComponent } from './carposts/carposts.component';
 import { PostblocksComponent } from './postblocks/postblocks.component';
 import { RelatedadsComponent } from './relatedads/relatedads.component';
 import { MyaccountComponent } from './myaccount/myaccount.component';
+import { PlaceLookupDirective } from './place-lookup.directive';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp( new AuthConfig({}), http, options);
@@ -41,6 +42,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     PostblocksComponent,
     RelatedadsComponent,
     MyaccountComponent,
+    PlaceLookupDirective,
   ],
   imports: [
     BrowserModule,
