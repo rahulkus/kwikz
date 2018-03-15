@@ -7,6 +7,28 @@ ul{
 a{
     text-decoration: none;
 }
+input, textarea {
+    padding: 10px 18px;
+    border: 1px solid #ebebeb;
+    margin-bottom: 10px;
+    background-color: #ffffff;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    color: #dbdbdb;
+    font-size: 13px;
+    font-family: inherit;
+}
+.custum-input-design{
+    background-color: transparent;
+    border-radius: 0;
+    outline: 0;
+    width: 100%;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    font-weight: 100;
+}
 .carousel{
     margin-left: -15px;
 }
@@ -44,10 +66,43 @@ a{
     padding: 15px 15px 15px 15px;
 }
 .askingPrice-section{
-    padding-bottom: 30px;
+    padding-bottom: 0px;
 }
 .askingPrice-right{
     float: right;
+}
+.borderless td, .borderless th {
+    border: none;
+}
+table.t-offer-received {
+    margin-bottom: 0px !important;
+}
+.offer-received{
+    margin-top: 20px;
+}
+.buyer-trade-offer{
+    margin-top: 20px;
+}
+.offer-received > h5, .seller-options > h5, .buyer-trade-offer > h5 , .seller-details > h5{
+    padding-bottom: 6px;
+    border-bottom: 1px solid #cccccc;
+}
+.table-popup{
+    margin-bottom: 0px;
+}
+.cancelbtn, .savebtn{
+    display: inline-block;
+    background: #F75A4D;
+    color: white;
+    margin: auto;
+    border: none;
+    font-size: 15px;
+    height: 28px;
+    padding: 2px 5px;
+    margin-right: 10px;
+    width: 100%;
+    max-width: 120px; 
+    margin: 20px 0 0 0;   
 }
 .btn-margin-top{
     margin-top: 10px;
@@ -56,7 +111,7 @@ a{
     background: #5BB530;
     color : white;
     margin: auto;
-    border-radius: 2px;
+    border: none;
     font-size: 15px;
     height: 28px;
     padding: 2px 5px;
@@ -224,8 +279,35 @@ p.breadCrumbs > a {
 }
 section.car-info{
     margin-top: 10px;
-    background: #FAFAFA;
     padding: 5px;    
+}
+#myTable{
+    width: 100%;
+}
+.m-right{
+    margin-right: 50px;
+}
+.th-border{
+    border-bottom: 1px #e6e6e6 solid;
+}
+.change-offer-btn{
+    background: #d1cfcf;
+    margin: auto;
+    font-size: 15px;
+    height: 28px;
+    padding: 2px 5px;
+    width: 100%;
+    height: 30px;
+    max-width: 200px;
+    border: none;
+}
+.more-offers{
+    text-align: right;
+    margin-bottom: 20px;
+}
+.more-offers a{
+    margin-right: 5px;
+    cursor: pointer;
 }
 .to-bold{
     color: #4e4e4e;
@@ -233,6 +315,7 @@ section.car-info{
 }
 .interested-buyers{
     float: right;
+    margin-right: 10px;
 }
 .interested-buyers > span.to-bold{
     color: #F75A4D;
@@ -241,6 +324,21 @@ section.car-info{
     font-size: 24px;
     color: #4e4e4e;
     font-weight: 600;
+}
+.bold-font{
+    font-weight: 600;
+}
+.f-right{
+    float: right;
+}
+
+/* Seller After Confirmation */
+.seller-options{
+    display: block;
+    margin-top: 30px;
+}
+.seller-details{
+    margin-top: 20px;
 }
 
 
@@ -256,4 +354,71 @@ section.car-info{
 .gp-bckg{
     background: #E22A2A;
     padding: 6px;  
+}
+
+/* POPUP */
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 99; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.seller-modal-withdraw{
+    width:520px !important;
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    border: 1px solid #888;
+    width: 400px;
+}
+.modal-header{
+    padding: 0px 15px;
+    border-bottom: none;
+    border-top-width: 4px;
+    border-top-style: solid;
+    border-color: #3079AB;
+}
+.box-header{
+    border-radius: 4px 4px 0 0;
+    box-shadow: 0 -1px 0 rgba(0,0,0,0.05) inset;
+    background-color: #f9fafa;
+}
+.modal-footer{
+    padding: 0px;
+}
+.box-footer{
+    padding: 0 15px 15px;
+    background-color: #f9fafa;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 2px 0 rgba(0,0,0,0.1);
+}
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.pagination{
+    margin: 20px 0 0 0;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
 }

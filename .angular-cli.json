@@ -24,7 +24,8 @@
         "styles.css"
       ],
       "scripts": [
-        "../node_modules/bootstrap/dist/js/bootstrap.min.js"
+        "../node_modules/bootstrap/dist/js/bootstrap.min.js",
+        "../src/assets/js/external.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
