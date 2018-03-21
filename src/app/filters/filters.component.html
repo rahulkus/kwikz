@@ -31,6 +31,8 @@
       	</div>
       	<div id="collapse2" class="panel-collapse collapse">
        		 <div class="panel-body">
+                 <input auto-complete class="form-control number-of-owners custm-input-design" id="maxPrice" name="maxPrice" [source]="maxPriceArray" (valueChanged)="valueChanged($event)" placeholder="max price" style="width:45%;float:left"/>
+                 <input style="width:45%;float:right" class="form-control number-of-owners custm-input-design" id="minPrice" name="minPrice" value="0" placeholder="" disabled/>
 			 </div>
      	 </div>
     </div>
@@ -57,6 +59,7 @@
       	<div id="collapse4" class="panel-collapse collapse">
        		 <div class="panel-body">
 				<p>Model Year</p>
+                <input auto-complete class="form-control number-of-owners custm-input-design" id="modelYear" name="modelYear" [source]="yearArray" (valueChanged)="valueChanged($event)" placeholder="Select year" />
 			</div>
      	 </div>
     </div>
@@ -70,6 +73,7 @@
       	<div id="collapse5" class="panel-collapse collapse">
        		 <div class="panel-body">
 				<p>Fuel Type</p>
+                 <input auto-complete class="form-control number-of-owners custm-input-design" id="fuelType" name="fuelType" [source]="fuelTypeArray" (valueChanged)="valueChanged($event)" placeholder="Select year" />
 			</div>
      	 </div>
     </div>
@@ -121,7 +125,15 @@
       	</div>
       	<div id="collapse9" class="panel-collapse collapse">
        		 <div class="panel-body">
-				<p>color</p>
+				<div class="container">
+                  <div class="filterDiv red"></div>
+                  <div class="filterDiv orange"></div>
+                  <div class="filterDiv black"></div>
+                  <div class="filterDiv blue"></div>
+                  <div class="filterDiv yellow"></div>
+                  <div class="filterDiv grey"></div>
+                  <div class="filterDiv green"></div>
+                </div>
 			</div>
      	 </div>
 	</div>

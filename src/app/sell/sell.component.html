@@ -290,9 +290,12 @@
                 <fieldset [ngClass]="{ 'active': showPhotoClass }" [class.in]="showPhotoClass" id="Photos" [style.display]="displayPhotoDetails">
                     <p class="post-steps">Step 3 - 4</p>
                     <div class="col-xs-12 vin-block">
+                        <p id="manual-details">Please select picture to upload</p>
                         <div class="embed-responsive embed-responsive-16by9">
-                            <iframe class="embed-responsive-item" src="http://127.0.0.1:8000/api/image/upload"></iframe>
+                            <input type="file" (change)="fileUpload($event)" placeholder="Upload file" accept=".jpg,.png">
                         </div>
+                        <p *ngIf="response == 'fail'" class="regFailureMessage"><i class="fa fa-times-circle" aria-hidden="true"></i> {{imageUploadMessage}}</p>
+                        <p *ngIf="response == 'success'" class="regSuccessMessage"><i class="fa fa-check-circle" aria-hidden="true"></i>{{imageUploadMessage}}</p>
                         <button type="submit" class="btn btn-default primaryButton" (click)="onClickChangeT('prevCarListingbtn')">Previous</button>
                         <button type="submit" class="btn btn-default primaryButton" (click)="onClickChangeT('nxtPhotosbtn')">Next</button>                        
                     </div>

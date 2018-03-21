@@ -147,3 +147,29 @@ a[aria-expanded="true"] span.toggle-class{
 .btn-customize > img{
   margin-top: -10px;
 }
+
+.filterDiv {
+  float: left;
+  color: #ffffff;
+  width: 25px;
+    height:25px;
+  line-height: 25px;
+  text-align: center;
+  margin: 2px;
+}
+
+.show {
+  display: block;
+}
+
+.container {
+  overflow: hidden;
+}
+
+.filterDiv.red{background-color:red}
+.filterDiv.green{background-color:green}
+.filterDiv.black{background-color:black}
+.filterDiv.blue{background-color:blue}
+.filterDiv.grey{background-color:grey}
+.filterDiv.yellow{background-color:yellow}
+.filterDiv.orange{background-color:orange}

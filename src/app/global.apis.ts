@@ -10,4 +10,5 @@ export const updateAPIPath='http://kwikz.nz/api/post/update1';
 export const showPostAPIPath='http://kwikz.nz/api/post/public';
 export const KeywordFilterAPIPath='http://kwikz.nz/api/post/filter';
 export const singlePostAPIPath='http://kwikz.nz/api/post/show';
+export const imageUpload='http://kwikz.nz/api/image/multiupload';
 export const postAPIPath='';

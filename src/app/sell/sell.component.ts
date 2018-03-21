@@ -39,6 +39,8 @@ export class SellComponent implements OnInit {
   displayListingDetails = 'none';
   displayPhotoDetails = 'none';
   displayFinalDetails = 'none';
+  public imageUploadMessage: string;
+  public response: string;
 
   bodyTypeArray = ["Don't Know", 'Convertible', 'Coupe', 'Hatchback', 'Sedan', 'Station Wagon', 'RV/SUV', 'Ute', 'Van'];
   fuelTypeArray = ["Don't Know", 'Petrol', 'Diesel', 'Hybrid', 'Electric', 'CNG', 'LPG', 'Alternative'];
@@ -115,6 +117,8 @@ Ford = ['Anglia', 'Bronco', 'Capri', 'Cortina', 'Courier', 'Deluxe', 'Econovan',
   }
 
   ngOnInit() {
+  
+  
     this.stripeCheckoutLoader.createHandler({
             key: 'pk_test_6pRNASCoBOKtIshFeQd4XMUh',
             token: (token) => {
@@ -347,6 +351,33 @@ Ford = ['Anglia', 'Bronco', 'Capri', 'Cortina', 'Courier', 'Deluxe', 'Econovan',
             console.log(error.text());
         }
     );
+  }
+  
+  fileUpload(event) {  	
+  	let fileList: FileList = event.target.files;
+  	    if(fileList.length > 0) {
+  	        let file: File = fileList[0];
+  	        let formData:FormData = new FormData();
+            formData.append('file', file.name);
+            formData.append('post_id', parseInt(localStorage.getItem('postId')));
+  	        
+  	        this.http.post(myGlobals.imageUpload, formData, { headers: contentHeaders })
+  	            .map(res => res.json())
+  	            .subscribe(
+  	                data => {
+                        console.log('success'); 
+                        this.response = 'success';
+                        this.imageUploadMessage = "Image has been uplaoded successfully.";
+                    },
+  	                error => {
+                        console.log(error);
+                        this.response = 'fail';
+                        this.imageUploadMessage = "Image has not uplaoded. Please try again.";
+                    }
+                        
+  	            )
+  	    }
+ 
   }
   
   getPost(){
